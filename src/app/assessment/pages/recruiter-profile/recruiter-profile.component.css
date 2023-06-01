@@ -31,3 +31,15 @@
 .personalinfo ul li{
     font-size: 1.5rem;
 }
+.content{
+    margin-top: 2rem;
+    align-items: center;
+}
+.locate{
+    width: 12.5rem;
+    height: 4rem;
+}
+.locate h3{
+    font-size: 1.5rem;
+    line-height: 1.25rem;
+}
