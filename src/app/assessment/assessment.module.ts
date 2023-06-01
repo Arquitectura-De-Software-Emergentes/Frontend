@@ -4,6 +4,8 @@ import { EvaluationsComponent } from './pages/evaluations/evaluations.component'
 import { RecruiterProfileComponent } from '../iam/recruiter-profile/recruiter-profile.component';
 import { UiModule } from '../UI/ui.module';
 import { RecruiterAnnouncementsComponent } from './pages/recruiter-announcements/recruiter-announcements.component';
+import { AdmAssessmentRecruiterComponent } from './pages/adm-assessment-recruiter/adm-assessment-recruiter.component';
+import { AssessmentRoutingModule } from './assessment-routing.module';
 
 
 @NgModule({
@@ -11,10 +13,11 @@ import { RecruiterAnnouncementsComponent } from './pages/recruiter-announcements
     EvaluationsComponent,
     RecruiterProfileComponent,
     RecruiterAnnouncementsComponent
+    AdmAssessmentRecruiterComponent,
   ],
   imports: [
     CommonModule,
-    UiModule
+    UiModule, AssessmentRoutingModule
   ]
 })
 export class AssessmentModule { }
