@@ -9,6 +9,10 @@ const routes: Routes = [
     path: 'application',
     loadChildren: () => import('../application/application.module').then(m => m.ApplicationModule),
   },
+  {
+    path: 'iam',
+    loadChildren:()=>import('../iam/iam.module').then(m=>m.IAMModule),
+  }
 ]
 @NgModule({
   declarations: [],
