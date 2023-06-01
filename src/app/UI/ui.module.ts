@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 
@@ -20,6 +21,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
     MatExpansionModule,
   ],
   exports:[
@@ -29,6 +31,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
+    MatFormFieldModule,
     MatExpansionModule,
   ]
 })
