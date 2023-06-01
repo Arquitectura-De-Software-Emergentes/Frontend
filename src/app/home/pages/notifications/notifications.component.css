@@ -1,0 +1,19 @@
+.noticard{
+    display: flex;
+    width: 20.125rem;
+    height: 9.5rem;
+    border-radius: 12px;
+    fill: #FBBB3F;
+}
+.noticard h3{
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: #000;
+}
+.noticard h4{
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: #000;
+}

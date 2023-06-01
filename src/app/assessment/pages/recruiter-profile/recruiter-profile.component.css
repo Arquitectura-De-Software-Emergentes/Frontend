@@ -1,0 +1,45 @@
+.top{
+    display: flex;
+    gap: 3rem;
+}
+.top h2{
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.25rem;
+    width: 29.688rem;
+    height: 5rem;
+}
+.profilepic{
+    width: 12.5rem;
+    height: 12.5rem;
+    fill: url();
+}
+.personalinfo{
+    width: 34.375rem;
+    height: 28.625rem;
+    align-items: center;
+}
+.personalinfo button{
+    width: 11rem;
+    height: 3.125rem;
+    border-radius: 100%;
+    fill: green;
+}
+.personalinfo ul{
+    list-style-type: none;
+}
+.personalinfo ul li{
+    font-size: 1.5rem;
+}
+.content{
+    margin-top: 2rem;
+    align-items: center;
+}
+.locate{
+    width: 12.5rem;
+    height: 4rem;
+}
+.locate h3{
+    font-size: 1.5rem;
+    line-height: 1.25rem;
+}
