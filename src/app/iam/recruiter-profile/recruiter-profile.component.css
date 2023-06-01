@@ -1,6 +1,8 @@
 .top{
     display: flex;
     gap: 3rem;
+    margin-top: 2.5rem;
+    margin-left: 6rem;
 }
 .top h2{
     font-weight: 700;
@@ -16,22 +18,26 @@
 .personalinfo{
     width: 34.375rem;
     height: 28.625rem;
+    margin-left: 6rem;
     align-items: center;
 }
 .personalinfo button{
     width: 11rem;
     height: 3.125rem;
-    border-radius: 100%;
+    border-radius: 25%;
     fill: green;
 }
 .personalinfo ul{
     list-style-type: none;
 }
 .personalinfo ul li{
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 2rem;
 }
 .content{
+    display: flex;
     margin-top: 2rem;
+    margin-left: 5rem;
     align-items: center;
 }
 .locate{
