@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../material/material.module';
+import { UiModule } from '../UI/ui.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MaterialModule
+    UiModule
   ]
 })
 export class ApplicationModule { }

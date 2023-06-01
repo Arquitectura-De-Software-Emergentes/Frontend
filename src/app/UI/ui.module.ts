@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -31,4 +32,4 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatExpansionModule,
   ]
 })
-export class MaterialModule { }
+export class UiModule { }

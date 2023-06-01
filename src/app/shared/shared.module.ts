@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { UiModule } from '../UI/ui.module';
 
 
+
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    UiModule
+    CommonModule, UiModule
   ]
 })
-export class JobOfferModule { }
+export class SharedModule { }
