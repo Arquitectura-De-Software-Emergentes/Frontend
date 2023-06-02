@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -23,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatButtonModule,
     MatFormFieldModule,
     MatExpansionModule,
+    MatInputModule
   ],
   exports:[
     MatSidenavModule,
