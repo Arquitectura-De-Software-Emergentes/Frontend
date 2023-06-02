@@ -11,6 +11,8 @@ import { PublicRoutingModule } from './public-routing.module';
   declarations: [LayoutComponent],
   imports: [
     CommonModule, UiModule, PublicRoutingModule
-  ]
+  ],
+  exports:[LayoutComponent]
+  
 })
 export class PublicModule { }

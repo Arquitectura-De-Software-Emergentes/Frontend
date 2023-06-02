@@ -7,6 +7,8 @@ import { ApplicationModule } from './application/application.module';
 import { AssessmentModule } from './assessment/assessment.module';
 import { JobOfferModule } from './job-offer/job-offer.module';
 import { IAMModule } from './iam/iam.module';
+import { LayoutComponent } from './public/pages/layout/layout.component';
+import { PublicModule } from './public/public.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +20,7 @@ import { IAMModule } from './iam/iam.module';
     AssessmentModule,
     IAMModule,
     JobOfferModule,
+    PublicModule
   ],
   exports: [],
   providers: [],
