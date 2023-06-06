@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AssessmentResponse, JobOffer } from '../../models/jobOffer';
 import { Router } from '@angular/router';
+import { Availability } from 'src/app/shared/enums';
 
 @Component({
   selector: 'app-adm-assessment-recruiter',
@@ -20,7 +21,7 @@ export class AdmAssessmentRecruiterComponent {
       salary: 5000,
       maxApplications: 40,
       numberApplications: 20,
-      avalability: 'Disponible',
+      avalability: Availability.AVAILABLE,
     },
   ];
   assessments: AssessmentResponse[] = [
@@ -31,7 +32,7 @@ export class AdmAssessmentRecruiterComponent {
       recruiterInstitution: 'Puesto de trabajo para docente de primaria',
       initialDate: new Date(),
       endDate: new Date(),
-      avalability: 'Available',
+      avalability: Availability.AVAILABLE,
       assessmentStages: [
         { activities: null, title: 'Fase de revisión de video' },
         { activities: null, title: 'Fase de pruebas de conocimientos' }
@@ -47,7 +48,7 @@ export class AdmAssessmentRecruiterComponent {
       recruiterInstitution: 'Puesto de trabajo para docente de primaria',
       initialDate: new Date(),
       endDate: new Date(),
-      avalability: 'Available',
+      avalability: Availability.AVAILABLE,
     },
   ];
   constructor(private router: Router){}

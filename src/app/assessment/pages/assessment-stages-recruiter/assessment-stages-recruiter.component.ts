@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssessmentResponse } from '../../models/jobOffer';
+import { Availability } from 'src/app/shared/enums';
 
 @Component({
   selector: 'app-assessment-stages-recruiter',
@@ -17,7 +18,7 @@ export class AssessmentStagesRecruiterComponent implements OnInit {
     recruiterInstitution: 'Puesto de trabajo para docente de primaria',
     initialDate: new Date(),
     endDate: new Date(),
-    avalability: 'Available',
+    avalability: Availability.AVAILABLE,
     assessmentStages: [
       { activities: [{name: 'Video Presentación'},{name:'Evaluación de razonamiento matemático'}], title: 'Fase 1' },
       { activities: [{name:'Entrevista'}], title: 'Fase 2' },

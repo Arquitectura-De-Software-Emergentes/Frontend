@@ -1,3 +1,5 @@
+import { Availability } from "src/app/shared/enums";
+
 export interface JobOffer {
   id: number
   recruiterId: number;
@@ -8,7 +10,7 @@ export interface JobOffer {
   salary: number;
   maxApplications: number;
   numberApplications: number;
-  avalability: string;
+  avalability: Availability;
 }
 
 export interface AssessmentResponse{
@@ -19,7 +21,7 @@ export interface AssessmentResponse{
   title: string;
   initialDate: Date;
   endDate: Date;
-  avalability: string;
+  avalability: Availability;
 }
 
 export interface AssessmentStage{
