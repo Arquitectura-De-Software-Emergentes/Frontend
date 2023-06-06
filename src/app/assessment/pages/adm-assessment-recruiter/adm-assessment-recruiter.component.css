@@ -1,0 +1,15 @@
+p {
+    color: #878a99!important;
+}
+li {
+    color: #878a99!important;
+}
+mat-panel-title{
+    color:#495057;
+    padding: 20px;
+    font-size: large;
+    height: fit-content;
+}
+mat-chip-option :disabled{
+    background-color: #3b11b7 !important; 
+}

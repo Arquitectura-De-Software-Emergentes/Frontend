@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
-
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatExpansionModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule
   ],
   exports:[
     MatSidenavModule,
@@ -35,6 +36,7 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatExpansionModule,
+    MatChipsModule
   ]
 })
 export class UiModule { }

@@ -19,7 +19,7 @@ import { PublicModule } from './public/public.module';
     AssessmentModule,
     IAMModule,
     JobOfferModule,
-    PublicModule
+    PublicModule,
     JobOfferModule
   ],
   exports: [],

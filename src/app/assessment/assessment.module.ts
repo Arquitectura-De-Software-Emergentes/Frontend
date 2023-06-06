@@ -8,16 +8,19 @@ import { AdmAssessmentRecruiterComponent } from './pages/adm-assessment-recruite
 import { AssessmentRoutingModule } from './assessment-routing.module';
 
 
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AssessmentStagesRecruiterComponent } from './pages/assessment-stages-recruiter/assessment-stages-recruiter.component';
 @NgModule({
   declarations: [
     EvaluationsComponent,
     RecruiterProfileComponent,
-    RecruiterAnnouncementsComponent
+    RecruiterAnnouncementsComponent,
     AdmAssessmentRecruiterComponent,
+    AssessmentStagesRecruiterComponent,
   ],
   imports: [
     CommonModule,
-    UiModule, AssessmentRoutingModule
+    UiModule, AssessmentRoutingModule,MatGridListModule
   ]
 })
 export class AssessmentModule { }

@@ -1,21 +1,47 @@
-<div style="padding:50px">
+<div style="padding: 25px">
+  <h1 style="width: 100%; text-align: center; font-weight: 500;">Procesos de evaluaciones</h1>
+    <div *ngFor="let assessment of assessments" style="padding: 10px;"> 
     <mat-accordion>
         <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-            <mat-panel-title style="font-size:x-large;">
-           Docente de primaria para curso de Matemáticas
+          <mat-expansion-panel-header style="width: 100%; padding: 10px; display: contents; ">
+            <mat-panel-title style=" display: contents;
+            width: 100%;">
+              <div style="width: 100%; padding: 20px;">
+                <div class="row" style="padding-top: 10px; padding-bottom: 0px">
+                  {{assessment.title}}
+                  <p style="padding-top: 10px; padding-bottom: 0px">
+                    {{assessment.recruiterInstitution}}
+                  </p>
+                </div>
+                <div class="row" style="display: flex; align-items: center; padding-top: 10px;">
+                  <mat-icon class="mat-icon-position" style="padding-right: 8px"
+                    >date_range</mat-icon>
+                  {{assessment.initialDate| date :'short'}}
+                </div>
+              </div>
+              <div style="display: flex; justify-content: end;padding-right: 10px;
+              align-items: center;">
+                <mat-chip-option
+                style="background-color: #11b774;
+                  color: white !important;
+                  font-weight: 500;"
+                selected
+                selectable="false"
+                >{{assessment.avalability=='Available'?'En Curso':'Culminado'}}</mat-chip-option
+              >
+              </div>
             </mat-panel-title>
-            <mat-panel-description style="justify-content: end">
-            23 postulantes
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>Fecha de inicio: 20/04/2023</p>
-        <p>Fecha de finalización prevista: 20/05/2023</p>
-        <p>Etapas</p>
-        <li>Evaluación de video de presentación</li>
-        <li>Test de conocimientos</li>
-        <li>Entrevista</li>
+          </mat-expansion-panel-header>
+          <div>
+            <p style="font-weight: 500;">Etapas: </p>
+            <li *ngFor="let stage of assessment.assessmentStages">
+              {{stage.title}}
+            </li>
+          </div>
+          <div style="text-align: right; width: 100%; padding-top: 20px;">
+            <button mat-flat-button class="primary-button" (click)="verDetalles(assessment.id)">Ver detalles</button>
+          </div>
         </mat-expansion-panel>
-    </mat-accordion>
+      </mat-accordion>
+    </div>
 </div>
-
