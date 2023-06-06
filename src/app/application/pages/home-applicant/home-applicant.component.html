@@ -8,3 +8,69 @@
             </button>
           </mat-form-field>
     </div>
+
+    <div style="display: flex;justify-content: center;max-width: 100%;">
+
+      <div style="width: 50%;">
+        <div *ngFor="let jobOffer of jobOffers" style="margin: 2%;box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4);">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{jobOffer.title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{jobOffer.description}}
+              </p>
+              <br>
+              <div class="row" style="display: flex; align-items: center; padding-top: 10px;"> 
+                <mat-icon class="mat-icon-position" style="padding-right: 8px;padding-bottom: 2px;">date_range</mat-icon>
+                {{jobOffer.initialDate| date:'short'}}
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+  
+      <div style="width:50%">
+        <div style="height: 100%;margin: 2%;">
+          <mat-card class="example-card" style="height: 100%;">
+            <mat-card-header>
+              <mat-card-title >Math Teacher</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div style="display: flex;flex-direction:column;justify-content: center;gap: 60px;margin: 10%;">
+                High School math teacher required late shift requirements:
+                <ul>
+                  <li>3 years of experience</li>
+                  <li>math domain</li>
+                  <li>good comunication</li>
+                  <li>equipo work</li>
+                </ul>
+                <br>
+                Benefits:
+                <ul>
+                  <li>S/ 3000 per month</li>
+                  <li>Good Work Enviroment</li>
+                </ul>
+
+                <div class="row" style="display: flex; align-items: center; padding-top: 10px;"> 
+                  <mat-icon class="mat-icon-position" style="padding-right: 8px;padding-bottom: 2px;">date_range</mat-icon>
+                  
+                </div>
+
+                <button mat-raised-button color="primary"><span>View</span></button>
+
+              </div>
+              
+                
+   
+            </mat-card-content>
+            
+          </mat-card>
+      </div>
+
+    </div>
+
+   
+
+  
