@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 
-
 const routes: Routes = [
   {
     path: 'application',
@@ -12,7 +11,11 @@ const routes: Routes = [
   {
     path: 'iam',
     loadChildren:()=>import('../iam/iam.module').then(m=>m.IAMModule),
-  }
+  },
+  {
+    path: 'assessment',
+    loadChildren: () => import('../assessment/assessment.module').then(m=>m.AssessmentModule),
+  },
 ]
 @NgModule({
   declarations: [],
