@@ -53,7 +53,7 @@ export class AdmAssessmentRecruiterComponent {
   ];
   constructor(private router: Router){}
   verDetalles(id: string):void{
-    this.router.navigate([`/assessment/view-assesment-process`,
+    this.router.navigate([`/recruiter/view-assesment-process`,
     { idProcess: id },
    ])
   }

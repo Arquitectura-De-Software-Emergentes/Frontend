@@ -28,6 +28,6 @@ export class AssessmentStagesRecruiterComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('idProcess')!;
   }
   volver(){
-    this.router.navigate([`/assessment`])
+    this.router.navigate([`recruiter/assessments`])
   }
 }

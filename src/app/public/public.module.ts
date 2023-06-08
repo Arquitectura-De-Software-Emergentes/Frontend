@@ -4,11 +4,12 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { UiModule } from '../UI/ui.module';
 import { PublicRoutingModule } from './public-routing.module';
 import { AssessmentModule } from '../assessment/assessment.module';
+import { LayoutApplicantComponent } from './pages/layout-applicant/layout-applicant.component';
 
 
 
 @NgModule({
-  declarations: [LayoutComponent],
+  declarations: [LayoutComponent, LayoutApplicantComponent],
   imports: [
     CommonModule, UiModule, PublicRoutingModule
   ],
