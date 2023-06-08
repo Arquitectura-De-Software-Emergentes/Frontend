@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { UiModule } from '../UI/ui.module';
 import { RouterModule } from '@angular/router';
 import { IamRoutingModule } from './iam-routing.module';
+import { ProfessionalProfileApplicantComponent } from './pages/professional-profile-applicant/professional-profile-applicant.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ProfessionalProfileApplicantComponent
+  ],
   imports: [
     CommonModule,
     UiModule,
