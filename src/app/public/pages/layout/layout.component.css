@@ -13,6 +13,12 @@
 .barra-menu{
     background-color: #FBBB3F;min-width: 300px; 
 }
+
+@media (max-width: 412px) {
+    .barra-menu{
+        background-color: #FBBB3F;min-width: 500px; 
+    }
+}
 .contenido {
     flex: 1 1 auto;
 }

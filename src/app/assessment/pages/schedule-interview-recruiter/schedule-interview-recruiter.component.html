@@ -1,0 +1,37 @@
+<div style="padding: 25px">
+  <h1 style="width: 100%; text-align: center; font-weight: 500">
+    Docentes Disponibles
+  </h1>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div style="height: 70px; width: 70px">
+        <img
+          [src]="'https://grupogeard.com/ec/wp-content/uploads/sites/5/2022/08/pexels-rodnae-productions-8363787.jpg'"
+          style="height: 70px; width: 70px; border-radius: 50%"
+        />
+      </div>
+      <div style="display: contents; width: 100%">
+        <div style="width: 100%; padding: 20px; padding-top: 0px">
+          <div class="row" style="padding-bottom: 0px">
+            <mat-card-title>Alejandra Vargas</mat-card-title>
+            <mat-card-subtitle>Math's Teacher</mat-card-subtitle>
+            <mat-card-subtitle>
+              <div class="row" style="display: flex; align-items: center; margin-top: 5px">
+                <mat-icon class="mat-icon-position" style="padding-right: 8px">date_range</mat-icon>
+                7/7/2023
+              </div>
+            </mat-card-subtitle>
+          </div>
+        </div>
+        <div style="display: flex;
+            justify-content: end;
+            padding-right: 10px;
+            align-items: center;">
+          <button mat-button class="primary-button" style="margin-left: 10px" (click)="openDialog()">
+            Agendar
+          </button>
+        </div>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</div>
