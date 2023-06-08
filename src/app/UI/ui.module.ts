@@ -9,8 +9,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
-import {MatChipsModule} from '@angular/material/chips';
-
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -25,9 +28,13 @@ import {MatChipsModule} from '@angular/material/chips';
     MatFormFieldModule,
     MatExpansionModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  exports:[
+  exports: [
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
@@ -36,7 +43,12 @@ import {MatChipsModule} from '@angular/material/chips';
     MatButtonModule,
     MatFormFieldModule,
     MatExpansionModule,
-    MatChipsModule
-  ]
+    MatChipsModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
+  ],
 })
-export class UiModule { }
+export class UiModule {}

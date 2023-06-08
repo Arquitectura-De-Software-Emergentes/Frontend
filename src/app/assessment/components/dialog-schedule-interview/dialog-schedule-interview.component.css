@@ -1,0 +1,7 @@
+.demo-inline-calendar-card {
+    width: 300px;
+}
+
+.mat-mdc-dialog-content {
+    max-height: 600px !important;
+}
