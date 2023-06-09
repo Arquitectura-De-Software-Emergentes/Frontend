@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css']
+  templateUrl: './layout-recruiter.component.html',
+  styleUrls: ['./layout-recruiter.component.css'],
 })
 export class LayoutComponent {
-
+ 
+    
 }

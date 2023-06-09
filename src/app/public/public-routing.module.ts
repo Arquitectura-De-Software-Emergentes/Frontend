@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './pages/layout-recruiter/layout.component';
+import { LayoutComponent } from './pages/layout-recruiter/layout-recruiter.component';
 import { LayoutApplicantComponent } from './pages/layout-applicant/layout-applicant.component';
 import { HomeApplicantComponent } from '../application/pages/home-applicant/home-applicant.component';
 
