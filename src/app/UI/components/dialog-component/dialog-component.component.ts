@@ -14,7 +14,7 @@ export class DialogComponentComponent {
   onAceptarClick():void{
     this.dialogRef.close({accepted:true});
     this.snackBar.openFromComponent(SnackBarComponent,{
-      duration:20000,
+      duration:2000,
       panelClass:['snackbar-verde']
     })
   }
