@@ -10,9 +10,9 @@ import {MatCardModule} from '@angular/material/card';
 import { JobOffer } from 'src/app/assessment/models/jobOffer';
 import { Availability } from 'src/app/shared/enums';
 import { DatePipe } from '@angular/common';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
+import { CreateOfferComponent } from 'src/app/UI/components/create-offer/create-offer.component';
 
 @Component({
   selector: 'app-home-applicant',
@@ -22,7 +22,7 @@ import { DialogComponentComponent } from 'src/app/UI/components/dialog-component
   imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
 })
 export class HomeApplicantComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog,private createOfferComponent:CreateOfferComponent) {}
   modify:boolean=false;
   value="";
   name="Toshiro";
@@ -145,5 +145,9 @@ export class HomeApplicantComponent {
         console.log('Cancelar');
       }
     })
+  }
+
+  createOffer():void{
+    
   }
 }

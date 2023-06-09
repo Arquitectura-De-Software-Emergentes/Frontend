@@ -16,11 +16,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { CreateOfferComponent } from './components/create-offer/create-offer.component';
 
 @NgModule({
   declarations: [
   
-    SnackBarComponent
+    SnackBarComponent,
+       CreateOfferComponent
   ],
   imports: [
     CommonModule,
