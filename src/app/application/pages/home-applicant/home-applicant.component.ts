@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import { JobOffer } from 'src/app/assessment/models/jobOffer';
 import { Availability } from 'src/app/shared/enums';
 import { DatePipe } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home-applicant',
@@ -19,6 +20,7 @@ import { DatePipe } from '@angular/common';
   imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
 })
 export class HomeApplicantComponent {
+  modify:boolean=false;
   value="";
   name="Toshiro";
   userType="Applicant"
@@ -116,5 +118,10 @@ export class HomeApplicantComponent {
 
   this.jobOfferExpanded=jobOfferExpanded;
    
+  }
+
+  save(){
+    console.log("nuevo valor",this.jobOfferExpanded.title)
+    this.jobOffers[this.jobOfferExpanded.id-1].title=this.jobOfferExpanded.title;
   }
 }

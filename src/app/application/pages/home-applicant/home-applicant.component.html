@@ -58,7 +58,8 @@
         <div style="height: 100%;margin: 2%;">
           <mat-card class="example-card" style="height: 100%;box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4);">
             <mat-card-header>
-              <mat-card-title >{{jobOfferExpanded.title}}</mat-card-title>
+              <mat-card-title *ngIf="modify==false">{{jobOfferExpanded.title}}</mat-card-title>
+              <mat-card-title *ngIf="modify==true"><mat-form-field><input matInput type="text" placeholder={{jobOfferExpanded.title}} [(ngModel)]="jobOfferExpanded.title"></mat-form-field></mat-card-title>
             </mat-card-header>
             <mat-card-content>
               <div style="display: flex;flex-direction:column;justify-content: center;gap: 60px;margin: 10%;">
@@ -81,7 +82,8 @@
                   
                 </div>
 
-                <button mat-raised-button color="primary"><span>Modify</span></button>
+                <button mat-raised-button color="primary" (click)="modify=true"  *ngIf="modify==false"><span>Modify</span></button>
+                <button mat-raised-button color="primary" (click)="modify=false" (click)=save() *ngIf="modify==true"><span>Save</span></button>
 
               </div>
               
