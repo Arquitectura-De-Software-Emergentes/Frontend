@@ -129,8 +129,7 @@ export class HomeApplicantComponent {
     let dialogRef = this.dialog.open(DialogComponentComponent, {
       width: '250px',
       data: {
-        title: 'Advertencia',
-        message: 'Se modificará, está seguro?',
+        title: 'Are you sure?',
         accepted:false,
       }
     });
