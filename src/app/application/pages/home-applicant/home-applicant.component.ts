@@ -22,14 +22,25 @@ export class HomeApplicantComponent {
   value="";
   name="Toshiro";
   userType="Applicant"
-  jobOfferName="";
+  jobOfferExpanded:JobOffer={
+      id:1,
+      recruiterId:1,
+      title:'Math Teacher',
+      description:'High School math teacher required late shift',
+      initialDate:new Date(),
+      endDate: new Date(),
+      salary:10000,
+      maxApplications:30,
+      numberApplications:10,
+      avalability:Availability.AVAILABLE,
+  }
 
   jobOffers:JobOffer[]=[
     {
       id:1,
       recruiterId:1,
-      title:'Math Teacher',
-      description:'High School math teacher required late shift',
+      title:'Software Architecture Teacher',
+      description:'From Upc, needs to delegate  task to students',
       initialDate:new Date(),
       endDate: new Date(),
       salary:10000,
@@ -38,7 +49,31 @@ export class HomeApplicantComponent {
       avalability:Availability.AVAILABLE,
     },
     {
-      id:1,
+      id:2,
+      recruiterId:1,
+      title:'Vallejo Prompter',
+      description:'Do not use chat gpt to apply for this job, automated disqualified',
+      initialDate:new Date(),
+      endDate: new Date(),
+      salary:10000,
+      maxApplications:30,
+      numberApplications:10,
+      avalability:Availability.AVAILABLE,
+    },
+    {
+      id:3,
+      recruiterId:1,
+      title:'Want a Job?',
+      description:'Yes I want bro',
+      initialDate:new Date(),
+      endDate: new Date(),
+      salary:10000,
+      maxApplications:30,
+      numberApplications:10,
+      avalability:Availability.AVAILABLE,
+    },
+    {
+      id:4,
       recruiterId:1,
       title:'Math Teacher',
       description:'High School math teacher required late shift',
@@ -50,42 +85,36 @@ export class HomeApplicantComponent {
       avalability:Availability.AVAILABLE,
     },
     {
-      id:1,
+      id:5,
       recruiterId:1,
-      title:'Math Teacher',
-      description:'High School math teacher required late shift',
+      title:'Science Teacher',
+      description:'Proffesional graduated with 10 years experience working on NASA',
       initialDate:new Date(),
       endDate: new Date(),
-      salary:10000,
-      maxApplications:30,
-      numberApplications:10,
-      avalability:Availability.AVAILABLE,
-    },
-    {
-      id:1,
-      recruiterId:1,
-      title:'Math Teacher',
-      description:'High School math teacher required late shift',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:10000,
-      maxApplications:30,
-      numberApplications:10,
-      avalability:Availability.AVAILABLE,
-    },
-    {
-      id:1,
-      recruiterId:1,
-      title:'Math Teacher',
-      description:'High School math teacher required late shift',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:10000,
-      maxApplications:30,
+      salary:10,
+      maxApplications:15,
       numberApplications:10,
       avalability:Availability.AVAILABLE,
     },
     
   ]
   
+
+  viewOffer(id:number){
+    let jobOfferExpanded:JobOffer={
+      id:this.jobOffers[id].id,
+      recruiterId:this.jobOffers[id].recruiterId,
+      title:this.jobOffers[id].title,
+      description:this.jobOffers[id].description,
+      initialDate:this.jobOffers[id].initialDate,
+      endDate: this.jobOffers[id].endDate,
+      salary:this.jobOffers[id].salary,
+      maxApplications:this.jobOffers[id].maxApplications,
+      numberApplications:this.jobOffers[id].numberApplications,
+      avalability:this.jobOffers[id].avalability,
+  };
+
+  this.jobOfferExpanded=jobOfferExpanded;
+   
+  }
 }
