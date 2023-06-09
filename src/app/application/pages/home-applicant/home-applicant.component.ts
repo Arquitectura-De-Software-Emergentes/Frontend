@@ -12,7 +12,6 @@ import { Availability } from 'src/app/shared/enums';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
-import { CreateOfferComponent } from 'src/app/UI/components/create-offer/create-offer.component';
 
 @Component({
   selector: 'app-home-applicant',
@@ -22,7 +21,7 @@ import { CreateOfferComponent } from 'src/app/UI/components/create-offer/create-
   imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
 })
 export class HomeApplicantComponent {
-  constructor(private dialog: MatDialog,private createOfferComponent:CreateOfferComponent) {}
+  constructor(private dialog: MatDialog) {}
   modify:boolean=false;
   value="";
   name="Toshiro";
