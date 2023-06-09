@@ -11,6 +11,8 @@ import { JobOffer } from 'src/app/assessment/models/jobOffer';
 import { Availability } from 'src/app/shared/enums';
 import { DatePipe } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
 
 @Component({
   selector: 'app-home-applicant',
@@ -20,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
 })
 export class HomeApplicantComponent {
+  constructor(private dialog: MatDialog) {}
   modify:boolean=false;
   value="";
   name="Toshiro";
@@ -102,7 +105,7 @@ export class HomeApplicantComponent {
   ]
   
 
-  viewOffer(id:number){
+  viewOffer(id:number):void{
     let jobOfferExpanded:JobOffer={
       id:this.jobOffers[id].id,
       recruiterId:this.jobOffers[id].recruiterId,
@@ -120,8 +123,28 @@ export class HomeApplicantComponent {
    
   }
 
-  save(){
+  save():void{
     console.log("nuevo valor",this.jobOfferExpanded.title)
-    this.jobOffers[this.jobOfferExpanded.id-1].title=this.jobOfferExpanded.title;
+  
+    let dialogRef = this.dialog.open(DialogComponentComponent, {
+      width: '250px',
+      data: {
+        title: 'Advertencia',
+        message: 'Se modificará, está seguro?',
+        accepted:false,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result=>{
+      console.log("aceptado?",result.accepted)
+      console.log("Resultado?",result)
+      if (result && result.accepted) {
+        this.jobOffers[this.jobOfferExpanded.id-1].title=this.jobOfferExpanded.title;
+        console.log('Aceptar');
+      } else {
+        this.jobOfferExpanded.title=this.jobOffers[this.jobOfferExpanded.id-1].title;
+        console.log('Cancelar');
+      }
+    })
   }
 }
