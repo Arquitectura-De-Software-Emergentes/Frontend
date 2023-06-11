@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './pages/layout-recruiter/layout-recruiter.component';
 import { LayoutApplicantComponent } from './pages/layout-applicant/layout-applicant.component';
-import { HomeApplicantComponent } from '../application/pages/home-applicant/home-applicant.component';
+import { HomeRecruiterComponent } from '../application/pages/home-recruiter/home-recruiter.component';
 import { RegisterApplicantComponent } from '../iam/pages/register-applicant/register-applicant.component';
 
 
@@ -35,7 +35,7 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        component:HomeApplicantComponent
+        component:HomeRecruiterComponent
       },
       {
         path:'assessment',

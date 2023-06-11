@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeApplicantComponent } from './pages/home-applicant/home-applicant.component';
+import { HomeRecruiterComponent } from './pages/home-recruiter/home-recruiter.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeApplicantComponent,
+    component: HomeRecruiterComponent,
   },
 ]
 

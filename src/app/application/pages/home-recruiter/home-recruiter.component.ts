@@ -15,16 +15,14 @@ import { DialogComponentComponent } from 'src/app/UI/components/dialog-component
 import { DialogCreateOfferComponent } from 'src/app/UI/components/dialog-create-offer/dialog-create-offer.component';
 import { ApplicantService } from '../../services/applicant.service';
 
-
 @Component({
-  selector: 'app-home-applicant',
-  templateUrl: './home-applicant.component.html',
-  styleUrls: ['./home-applicant.component.css'],
+  selector: 'app-home-recruiter',
+  templateUrl: './home-recruiter.component.html',
+  styleUrls: ['./home-recruiter.component.css'],
   standalone:true,
   imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
-
 })
-export class HomeApplicantComponent {
+export class HomeRecruiterComponent {
   constructor(private dialog: MatDialog,private applicantService:ApplicantService) {}
   modify:boolean=false;
   value="";
@@ -92,5 +90,4 @@ export class HomeApplicantComponent {
       data:'',
     });
   }
-
 }
