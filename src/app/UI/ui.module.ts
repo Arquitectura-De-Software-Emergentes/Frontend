@@ -17,13 +17,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
-
-
 import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
-  declarations: [
-    SnackBarComponent,
-  ],
+  declarations: [SnackBarComponent],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -41,7 +38,9 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSnackBarModule,
-    MatTabsModule,FormsModule
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    FormsModule,
   ],
   exports: [
     MatSidenavModule,
@@ -60,7 +59,9 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatTabsModule,FormsModule
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    FormsModule,
   ],
 })
 export class UiModule {}
