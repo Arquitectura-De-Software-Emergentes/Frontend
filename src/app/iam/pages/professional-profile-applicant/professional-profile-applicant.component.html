@@ -1,70 +1,157 @@
-<div style="padding: 50px; padding-top: 25px">
-    <h1 style="width: 100%; text-align: center; font-weight: 500;">Professional Profile</h1>
-   <div style="margin-bottom: 10px; padding-bottom: 10px;" >
-    <mat-accordion class="example-headers-align" multi>
+<div>
+  <div class="image-container">
+    <img
+      [src]="
+        'https://img.freepik.com/vector-premium/interior-aula-dibujos-animados_273525-33.jpg?w=2000'
+      "
+    />
+    <div class="shadow"></div>
+  </div>
+  <div clas="container">
+    <div class="image-container2">
+      <img
+        [src]="
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2vxPkuzbr1hLMDYq8GQg2cJ7EuFax8-Zwg&usqp=CAU'
+        "
+      />
+      <div class="shadow"></div>
+    </div>
+  </div>
+
+  <div style="padding: 50px; padding-top: 60px">
+    <h1 style="text-align: center; width: 100%; font-weight: 500">Miguel</h1>
+    <mat-tab-group style="background-color: white;">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon style="margin-right: 5px">book icon</mat-icon>Academic
+          Information
+        </ng-template>
+        <div style="margin: 40px">
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">School</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Speciality</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Reference</div>
+            <mat-form-field [style.width.px]=227>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon style="margin-right: 5px">account_circle</mat-icon>Contact
+          Information
+        </ng-template>
+        <div style="margin: 40px">
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Phone</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Email</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Mobile Phone</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon style="margin-right: 5px">face icon</mat-icon>Personal
+          Information
+        </ng-template>
+        <div style="margin: 40px">
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Name</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Lastname</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">DNI</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%; ">Birth Date</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput [matDatepicker]="picker" />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div style="text-align: center" class="label-suave">
+            <div style="width: 100%">Address</div>
+            <mat-form-field [style.width.px]=227>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+    <div style="margin-bottom: 10px; padding-bottom: 10px">
+      <mat-accordion class="example-headers-align" multi>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-                <mat-icon style="margin-right: 5px;">book icon</mat-icon>Academic Information
+              <mat-icon style="margin-right: 15px; margin-top: -3px;">work</mat-icon>Job Experience Information
             </mat-panel-title>
           </mat-expansion-panel-header>
-      
-      <div class="">
-    <mat-form-field>
-            <mat-label>School</mat-label>
+
+          <div style="justify-content: center; gap: 20px;">
+            <mat-form-field [style.width.px]=250>
+            <mat-label>First name</mat-label>
             <input matInput>
           </mat-form-field>
-      </div>
-         <div class="">
-         <mat-form-field>
-            <mat-label>Speciality</mat-label>
+          <mat-form-field [style.width.px]=250>
+            <mat-label>Company</mat-label>
             <input matInput>
           </mat-form-field>
-         
-      </div>
-      <div class="">
-        <mat-form-field>
-           <mat-label>Reference</mat-label>
-           <textarea matInput></textarea>
-         </mat-form-field>
-        
-     </div>
-        </mat-expansion-panel>
-        </mat-accordion>
-   </div>
-    <div style="margin-bottom: 10px; padding-bottom: 10px;">
-         <mat-accordion class="example-headers-align" multi>
-        <mat-expansion-panel >
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <mat-icon style="margin-right: 5px;">account_circle</mat-icon>Contact Information
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-      
-          <mat-form-field>
-            <mat-label>Phone</mat-label>
+          <mat-form-field [style.width.px]=250>
+            <mat-label>Position</mat-label>
             <input matInput>
           </mat-form-field>
+          <mat-form-field [style.width.px]=250>
+            <mat-label>Time</mat-label>
+            <input matInput >
+          </mat-form-field>
+          </div>
+
+          
+          
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-       <div style="margin-bottom: 10px; padding-bottom: 10px;">
-         <mat-accordion class="example-headers-align" multi>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-                <mat-icon style="margin-right: 5px;">face icon</mat-icon>Personal Information
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-      
-          <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
-          </mat-form-field>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-expansion-panel>
-      </mat-accordion>
-       </div>
-     
-      
+  </div>
 </div>
