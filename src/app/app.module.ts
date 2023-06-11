@@ -18,7 +18,6 @@ import { IAMModule } from './iam/iam.module';
     AssessmentModule,
     IAMModule,
     JobOfferModule,
-    JobOfferModule
   ],
   exports: [],
   providers: [],
