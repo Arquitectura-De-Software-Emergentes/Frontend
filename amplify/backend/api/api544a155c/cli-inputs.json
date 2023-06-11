@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "teacherfinder417995a7",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

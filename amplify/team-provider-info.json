@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-teacherfinder-dev-155306-authRole",
+      "UnauthRoleArn": "arn:aws:iam::386758682369:role/amplify-teacherfinder-dev-155306-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::386758682369:role/amplify-teacherfinder-dev-155306-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-teacherfinder-dev-155306-deployment",
+      "UnauthRoleName": "amplify-teacherfinder-dev-155306-unauthRole",
+      "StackName": "amplify-teacherfinder-dev-155306",
+      "StackId": "arn:aws:cloudformation:us-east-1:386758682369:stack/amplify-teacherfinder-dev-155306/f8349c40-0899-11ee-b9b3-0ae402288319",
+      "AmplifyAppId": "d31xmt9kyoqlva"
+    },
+    "categories": {
+      "function": {
+        "teacherfinder417995a7": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d31xmt9kyoqlva",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
