@@ -4,6 +4,7 @@ import { ProfessionalProfileResponse } from '../models/professionalProfileRespon
 import { Observable } from 'rxjs';
 import { ProfessionalProfileReq } from '../models/professionalProfileReq';
 import { JobExperienceInformation } from '../models/jobExperienceInformation';
+import { CVResponse } from '../models/cvResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,15 @@ export class ProfessionalProfileService {
   postExperience(jobExperience: JobExperienceInformation): Observable<number> {
     let url= this.apiUrl+`experience`
     return this.http.post<number>(url, jobExperience);
+  }
+
+  getCV(id: number): Observable<CVResponse> {
+    let url= this.apiUrl+`${id}/cv`
+    return this.http.get<CVResponse>(url);
+  }
+
+  updateCV(cv: CVResponse, id: number): Observable<void> {
+    let url= this.apiUrl+`${id}/cv`
+    return this.http.put<void>(url,cv);
   }
 }
