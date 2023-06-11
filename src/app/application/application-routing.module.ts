@@ -6,10 +6,7 @@ import { HomeRecruiterComponent } from './pages/home-recruiter/home-recruiter.co
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeRecruiterComponent,
-  },
+ 
 ]
 
 @NgModule({

@@ -4,6 +4,7 @@ import { LayoutRecruiterComponent } from './pages/layout-recruiter/layout-recrui
 import { LayoutApplicantComponent } from './pages/layout-applicant/layout-applicant.component';
 import { HomeRecruiterComponent } from '../application/pages/home-recruiter/home-recruiter.component';
 import { RegisterApplicantComponent } from '../iam/pages/register-applicant/register-applicant.component';
+import { HomeApplicantComponent } from '../application/pages/home-applicant/home-applicant.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        loadChildren: () => import('../assessment/assessment.module').then(m=>m.AssessmentModule),
+        component:HomeRecruiterComponent
       },
       {
         path: 'application',
@@ -35,7 +36,7 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        component:HomeRecruiterComponent
+        component:HomeApplicantComponent
       },
       {
         path:'assessment',

@@ -20,9 +20,6 @@ import { ApplicantService } from '../../services/applicant.service';
   selector: 'app-home-applicant',
   templateUrl: './home-applicant.component.html',
   styleUrls: ['./home-applicant.component.css'],
-  standalone:true,
-  imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
-
 })
 export class HomeApplicantComponent {
   constructor(private dialog: MatDialog,private applicantService:ApplicantService) {}
@@ -40,7 +37,7 @@ export class HomeApplicantComponent {
       salary:{mount:10000,currency:Currency.PEN},
       maxApplications:30,
       numberApplications:10,
-      avalability:Availability.AVAILABLE,
+      availability:Availability.AVAILABLE,
       positionProfile:{
         id:1,
         course:{course:"Math"},

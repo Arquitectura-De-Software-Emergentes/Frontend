@@ -35,7 +35,7 @@
     <div style="display: flex;justify-content: center;max-width: 100%;">
 
       <div style="width: 50%;height: 100%; transition: width 0.3s, height 0.3s;" >
-        <div *ngFor="let jobOffer of jobOffers" style="margin: 2%;box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4);" (click)=viewOffer(jobOffer.id-1) class="oferta">
+        <div *ngFor="let jobOffer of jobOffers" style="margin: 2%;box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4);" (click)="jobOfferExpanded=jobOffer" class="oferta">
           <mat-card>
             <mat-card-header>
               <mat-card-title>{{jobOffer.title}}</mat-card-title>
@@ -61,6 +61,19 @@
               <mat-card-title *ngIf="modify==false">{{jobOfferExpanded.title}}</mat-card-title>
               <mat-card-title *ngIf="modify==true"><mat-form-field><input matInput type="text" placeholder={{jobOfferExpanded.title}} [(ngModel)]="jobOfferExpanded.title"></mat-form-field></mat-card-title>
             </mat-card-header>
+            <div style="display: flex; justify-content: end;padding-right: 10px;
+              align-items: center;">
+              <mat-chip-option
+            style="background-color: #11b774;
+              color: white !important;
+              font-weight: 500;"
+            
+            [selected]="jobOfferExpanded.availability==available"
+            (selectionChange)="updateAvailable()"
+            >{{jobOfferExpanded.availability}}</mat-chip-option
+          >
+              </div>
+            
             <mat-card-content>
               <div style="display: flex;flex-direction:column;justify-content: center;gap: 60px;margin: 10%;">
                 {{jobOfferExpanded.description}}
@@ -84,7 +97,7 @@
 
                 <button mat-raised-button class="primary-button" (click)="modify=true"  *ngIf="modify==false"><span>Modify</span></button>
                 <button mat-raised-button color="primary" (click)="modify=false" (click)=save() *ngIf="modify==true"><span>Save</span></button>
-
+                
               </div>
               
                 

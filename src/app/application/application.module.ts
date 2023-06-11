@@ -5,18 +5,17 @@ import {  HomeRecruiterComponent } from './pages/home-recruiter/home-recruiter.c
 import { ApplicationRoutingModule } from './application-routing.module';
 import { DialogComponentComponent } from '../UI/components/dialog-component/dialog-component.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { HomeApplicantComponent } from './pages/home-applicant/home-applicant.component';
 
 
 @NgModule({
   declarations: [
-    DialogComponentComponent,
+    DialogComponentComponent, HomeRecruiterComponent, HomeApplicantComponent
   ],
   imports: [
     CommonModule,
     MatDialogModule,
-    UiModule,
-    HomeRecruiterComponent, ApplicationRoutingModule
+    UiModule, ApplicationRoutingModule
   ],
   entryComponents:[
     DialogComponentComponent
