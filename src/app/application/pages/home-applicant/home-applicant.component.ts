@@ -77,10 +77,10 @@ export class HomeApplicantComponent {
       console.log("aceptado?",result.accepted)
       console.log("Resultado?",result)
       if (result && result.accepted) {
-        this.jobOffers[this.jobOfferExpanded.id-1].title=this.jobOfferExpanded.title;
+       this.applicantService.applyToJobOffer(11,8)
         console.log('Aceptar');
       } else {
-        this.jobOfferExpanded.title=this.jobOffers[this.jobOfferExpanded.id-1].title;
+        
         console.log('Cancelar');
       }
     })
