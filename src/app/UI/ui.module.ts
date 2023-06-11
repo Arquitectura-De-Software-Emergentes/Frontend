@@ -41,7 +41,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule,
     MatTabsModule,
     FormsModule,
+
+
   ],
+
   exports: [
     MatSidenavModule,
     MatToolbarModule,

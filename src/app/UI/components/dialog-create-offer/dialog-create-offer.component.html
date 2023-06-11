@@ -1,0 +1,131 @@
+
+<div style="width: 500px;max-height: 100%;" class="wrapper">
+    <div style="text-align: center;width: 100%;">
+        <h1>Create Offer</h1>
+    </div>
+ 
+<div style="display: flex" class="inputsito">
+    <mat-form-field style="width: 100%;">
+        <mat-label>Title</mat-label>
+        <input matInput  [(ngModel)]="user.name">   
+        <mat-icon matIconSuffix style="margin-right: 2%">create</mat-icon>
+    </mat-form-field>
+</div>
+
+<div style="display: flex;" class="inputsito">
+    
+    <mat-form-field style="width: 100%;">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="user.email"></textarea>
+        <mat-icon matIconSuffix style="margin-right: 2%">library_books</mat-icon>
+    </mat-form-field>
+
+</div>
+
+<div style="display: flex;" class="inputsito">
+    <mat-form-field style="width: 100%;">
+        <mat-label>initialDate</mat-label>
+        <mat-date-range-picker></mat-date-range-picker>
+        <input matInput  [matDatepicker]="datepicker">
+        <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+    </mat-form-field>
+</div>
+
+<div style="display: flex;" class="inputsito">
+    <mat-form-field style="width: 100%;">
+        <mat-label>endDate</mat-label>
+        <mat-date-range-picker></mat-date-range-picker>
+        <input matInput  [matDatepicker]="datepicker2">
+        <mat-datepicker-toggle matIconSuffix [for]="datepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker2>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+    </mat-form-field>
+</div>
+
+<div style="display: flex;" class="inputsito">
+    <mat-form-field style="width: 100%;">
+        <mat-label>Salary</mat-label>
+        <input matInput type="number" [(ngModel)]="user.name">
+        <mat-icon matIconSuffix style="margin-right: 2%">money</mat-icon>
+    </mat-form-field>
+</div>
+
+<div style="display: flex;" class="inputsito">
+    <mat-form-field style="width: 100%;">
+        <mat-label>maxApplications</mat-label>
+        <input matInput type="number">
+        <mat-icon matIconSuffix style="margin-right: 2%">equalizer</mat-icon>
+    </mat-form-field>
+</div>
+
+   
+<div style="display: flex;" class="inputsito">
+    <mat-form-field style="width: 100%;">
+        <input matInput type="text" [(ngModel)]="user.name" readonly placeholder="AVAILABLE">
+        <mat-icon matIconSuffix style="margin-right: 2%">how_to_reg</mat-icon>
+    </mat-form-field>
+</div>
+
+<div style="display: flex;" class="inputsito">
+    <mat-form-field style="width: 100%;">
+        <mat-label>Position Profile</mat-label>
+        <input matInput type="text" [(ngModel)]="user.name" >
+        <mat-icon matIconSuffix style="margin-right: 2%;">search</mat-icon>
+    </mat-form-field>
+</div>
+
+
+
+<button mat-raised-button class="primary-button" style="width: 96%;margin-right: 1%;margin-bottom: 2%;margin-left: 2%;">Add</button>
+</div>
+    
+        
+        
+       
+
+        
+        
+       
+
+      
+        
+      
+     
+            
+       
+
+
+       
+            
+       
+
+
+       
+            
+        
+
+
+
+  
+
+  
+        
+        
+    
+   
+
+    
+
+
+    
+
