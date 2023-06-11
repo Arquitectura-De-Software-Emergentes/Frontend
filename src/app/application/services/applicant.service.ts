@@ -13,4 +13,6 @@ export class ApplicantService {
   getJobOffers():Observable<JobOffer[]>{
     return this.http.get<JobOffer[]>(this.apiUrl);
   }
+
+ 
 }
