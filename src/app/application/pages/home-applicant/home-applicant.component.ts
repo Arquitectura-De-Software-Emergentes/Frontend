@@ -62,6 +62,27 @@ export class HomeApplicantComponent {
     this.jobOfferExpanded=this.jobOffers[id];
   }
 
+  apply():void{
+    let dialogRef = this.dialog.open(DialogComponentComponent, {
+      width: '250px',
+      data: {
+        title: 'Are you sure?',
+        accepted:false,
+      }
+    });
+    dialogRef.afterClosed().subscribe(result=>{
+      console.log("aceptado?",result.accepted)
+      console.log("Resultado?",result)
+      if (result && result.accepted) {
+       this.applicantService.applyToJobOffer(11,8)
+        console.log('Aceptar');
+      } else {
+        
+        console.log('Cancelar');
+      }
+    })
+  }
+
   save():void{
     let dialogRef = this.dialog.open(DialogComponentComponent, {
       width: '250px',
