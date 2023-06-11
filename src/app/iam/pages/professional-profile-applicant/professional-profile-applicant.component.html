@@ -29,7 +29,38 @@
   </div>
 
   <div style="padding: 50px; padding-top: 60px" *ngIf="!loading">
-    <h1 style="text-align: center; width: 100%; font-weight: 500">Miguel</h1>
+    <h1 style="text-align: center; width: 100%; font-weight: 500">Erick Cruz</h1>
+
+    
+    <div style="" class="label-suave">
+      <div style="width: 100%">CV</div>
+      <mat-form-field *ngIf="editCV" [style.width.px]="227" >
+        <input [(ngModel)]="cv.cv"
+          matInput
+          [readonly]="!editCV"
+        />
+      </mat-form-field>
+      
+      <a *ngIf="!editCV" [href]="cv.cv" mat-menu-item >{{cv.cv}}</a>
+      <button style="justify-content: right; margin-left: 20px;"
+        *ngIf="!editCV"
+        mat-raised-button
+        class="primary-button text-right"
+        (click)="this.editCV = true"
+      >
+        Edit CV
+      </button>
+      <button style="justify-content: right;margin-left: 20px;"
+        *ngIf="editCV"
+        mat-raised-button
+        type="button"
+        class="primary-button text-right"
+        (click)="saveCV()"
+      >
+        Save
+      </button>
+    </div>
+
     <div style="text-align: end; padding-bottom: 20px">
       <button
         *ngIf="!editInformation"
@@ -57,6 +88,7 @@
         Save
       </button>
     </div>
+
     <mat-tab-group style="background-color: white">
       <mat-tab>
         <ng-template mat-tab-label>

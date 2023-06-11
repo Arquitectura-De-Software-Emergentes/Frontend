@@ -5,6 +5,7 @@ import { JobExperienceInformation } from '../../models/jobExperienceInformation'
 import { ProfessionalProfileService } from '../../services/professional-profile.service';
 import { ProfessionalProfileResponse } from '../../models/professionalProfileResponse';
 import { ProfessionalProfileReq } from '../../models/professionalProfileReq';
+import { CVResponse } from '../../models/cvResponse';
 
 @Component({
   selector: 'app-professional-profile-applicant',
@@ -13,7 +14,11 @@ import { ProfessionalProfileReq } from '../../models/professionalProfileReq';
 })
 export class ProfessionalProfileApplicantComponent implements OnInit{
   loading: boolean = false
+  cv: CVResponse ={
+    cv: ''
+  }
   editInformation: boolean=false;
+  editCV: boolean=false
   profileInformation: ProfessionalProfileResponse ={
     academicInformation: {
       school: '',
@@ -38,7 +43,8 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
     private professionalProfileService: ProfessionalProfileService) {}
 
   ngOnInit(): void {
-     this.setProfile()
+     this.setProfile();
+     this.setCV()
   }
 
   setProfile(){
@@ -47,19 +53,35 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
       .subscribe({
         next: profile => {
           this.loading=false;
-          console.log(profile)
           this.profileInformation=profile
         }
       })
   }
 
+  setCV(){
+    this.professionalProfileService.getCV(8)
+      .subscribe({
+        next: cv => {
+          this.cv=cv;
+        }
+      })
+  }
+
+  saveCV(){
+    this.professionalProfileService.updateCV(this.cv,8)
+    .subscribe({
+      next: ()=> {
+          this.editCV=false
+        this.setProfile()
+      }
+    })
+  }
   updateProfile(){
     this.loading=true
     this.professionalProfileService.updateProfile(this.profileInformation,8)
       .subscribe({
         next: profile => {
           this.loading=false
-          console.log('success')
           this.setProfile();this.editInformation=false
         }
       })
@@ -69,7 +91,6 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
     this.professionalProfileService.postExperience(obj)
       .subscribe({
         next: () => {
-          console.log('success');
           this.setProfile()
         }
       })
