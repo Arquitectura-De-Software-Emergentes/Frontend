@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './layout-recruiter.component.html',
   styleUrls: ['./layout-recruiter.component.css'],
 })
-export class LayoutComponent {
+export class LayoutRecruiterComponent {
  
     
 }
