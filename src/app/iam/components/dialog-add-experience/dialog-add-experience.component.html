@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Add Job Experience</h2>
+<mat-dialog-content class="mat-typography">
+  <div style="margin: 40px">
+    <div style="text-align: center" class="label-suave">
+      <div style="width: 100%">Position</div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newJobExperience!.position"/>
+      </mat-form-field>
+    </div>
+    <div style="text-align: center" class="label-suave">
+      <div style="width: 100%">Company</div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newJobExperience!.company"/>
+      </mat-form-field>
+    </div>
+    <div style="text-align: center" class="label-suave">
+      <div style="width: 100%">Time</div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newJobExperience!.time"/>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="newJobExperience" class="primary-button">
+    Save
+  </button>
+</mat-dialog-actions>
