@@ -19,11 +19,11 @@ import { ApplicantService } from '../../services/applicant.service';
   selector: 'app-home-recruiter',
   templateUrl: './home-recruiter.component.html',
   styleUrls: ['./home-recruiter.component.css'],
-  standalone:true,
-  imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
-})
+  })
 export class HomeRecruiterComponent {
   constructor(private dialog: MatDialog,private applicantService:ApplicantService) {}
+  available: Availability=Availability.AVAILABLE;
+  unavailable: Availability=Availability.UNAVAILABLE;
   modify:boolean=false;
   value="";
   name="Toshiro";
@@ -38,7 +38,7 @@ export class HomeRecruiterComponent {
       salary:{mount:10000,currency:Currency.PEN},
       maxApplications:30,
       numberApplications:10,
-      avalability:Availability.AVAILABLE,
+      availability:Availability.AVAILABLE,
       positionProfile:{
         id:1,
         course:{course:"Math"},
@@ -52,7 +52,7 @@ export class HomeRecruiterComponent {
   jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
-    this.applicantService.getJobOffers().subscribe(
+    this.applicantService.getJobOffersByIdRecruiter(1).subscribe(
       data=>{
         this.jobOffers=data;
       }
@@ -61,6 +61,9 @@ export class HomeRecruiterComponent {
 
   viewOffer(id:number):void{
     this.jobOfferExpanded=this.jobOffers[id];
+  }
+  updateAvailable(){
+    
   }
 
   save():void{

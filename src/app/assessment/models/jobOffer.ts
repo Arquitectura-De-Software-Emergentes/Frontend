@@ -10,7 +10,7 @@ export interface JobOffer {
   salary: Salary;
   maxApplications: number;
   numberApplications: number;
-  avalability: Availability;
+  availability: Availability;
   positionProfile:PositionProfile;
 }
 

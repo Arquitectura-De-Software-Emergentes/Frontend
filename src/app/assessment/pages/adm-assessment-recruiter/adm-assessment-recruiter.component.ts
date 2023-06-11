@@ -21,7 +21,7 @@ export class AdmAssessmentRecruiterComponent {
       salary: {mount:10000,currency:Currency.PEN},
       maxApplications: 40,
       numberApplications: 20,
-      avalability: Availability.AVAILABLE,
+      availability: Availability.AVAILABLE,
       positionProfile:{
         id:1,
         course:{course:"Math"},
