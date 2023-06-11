@@ -1,0 +1,48 @@
+<mat-card>
+<mat-card-content>
+
+    <div clas="container">
+        <div class="image-container2">
+          <img
+            [src]="
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2vxPkuzbr1hLMDYq8GQg2cJ7EuFax8-Zwg&usqp=CAU'
+            "
+          />
+          <div class="shadow"></div>
+        </div>
+      </div>
+<form [formGroup]="form"  style="margin-top: 180px;">
+      <h1 style="text-align: center; font-weight: 500;">Teacher</h1>
+      <p style="text-align: center; padding: 10px;">Register to find the best job offers</p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="username">
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+    </p>
+ 
+
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" type="password" formControlName="password">
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>CV</mat-label>
+            <input matInput placeholder="CV" formControlName="cv">
+            <mat-icon matSuffix>insert_drive_file</mat-icon>
+          </mat-form-field>
+    </p>
+  
+  <div class="button">
+    <button type="button" class="primary-button" mat-button (click)="goHome()">Register</button>
+  </div>
+
+</form>
+</mat-card-content>
+</mat-card>

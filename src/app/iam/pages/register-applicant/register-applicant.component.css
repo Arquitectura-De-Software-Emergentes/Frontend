@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+
+
+  
+  
+  .image-container2 {
+    
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* Ajusta el ancho según tus necesidades */
+    height: 150px; /* Ajusta la altura según tus necesidades */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white; /* Color y grosor del marco */
+    z-index: 9999; 
+  
+  }
+  
+  .image-container2 img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .container {
+    width: 100vh;
+    justify-content: center;
+    align-items: center;
+  }

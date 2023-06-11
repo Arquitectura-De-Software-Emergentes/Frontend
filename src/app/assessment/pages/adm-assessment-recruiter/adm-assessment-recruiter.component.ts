@@ -14,7 +14,7 @@ export class AdmAssessmentRecruiterComponent {
     {
       id: 1,
       recruiterId: 2,
-      title: 'Docente de primaria para curso de Matemáticas',
+      title: 'Math Teacher',
       description: 'Puesto de trabajo para docente de primaria',
       initialDate: new Date(),
       endDate: new Date(),
@@ -36,8 +36,8 @@ export class AdmAssessmentRecruiterComponent {
     {
       id: '1',
       jobOfferId: 1,
-      title: 'Docente de primaria para curso de Matemáticas',
-      recruiterInstitution: 'Puesto de trabajo para docente de primaria',
+      title: 'Math Teacher',
+      recruiterInstitution: 'High school math teacher required late shift',
       initialDate: new Date(),
       endDate: new Date(),
       avalability: Availability.AVAILABLE,
@@ -60,8 +60,8 @@ export class AdmAssessmentRecruiterComponent {
       assessmentStages: [
         { activities: null, title: 'Fase de pruebas de conocimientos' },
       ],
-      title: 'Docente de primaria para curso de Matemáticas',
-      recruiterInstitution: 'Puesto de trabajo para docente de primaria',
+      title: 'Science Teacher',
+      recruiterInstitution: 'High school math teacher required late shift',
       initialDate: new Date(),
       endDate: new Date(),
       avalability: Availability.AVAILABLE,
