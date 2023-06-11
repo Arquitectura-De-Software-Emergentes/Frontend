@@ -17,25 +17,42 @@
       <div class="shadow"></div>
     </div>
   </div>
+  <div *ngIf="loading"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    "
+  >
+    <mat-spinner></mat-spinner>
+  </div>
 
-  <div style="padding: 50px; padding-top: 60px">
+  <div style="padding: 50px; padding-top: 60px" *ngIf="!loading">
     <h1 style="text-align: center; width: 100%; font-weight: 500">Miguel</h1>
-    <div style="text-align: end; padding-bottom: 20px;">
-      <button *ngIf="!editInformation"
+    <div style="text-align: end; padding-bottom: 20px">
+      <button
+        *ngIf="!editInformation"
         mat-raised-button
-        class="primary-button text-right" (click)="editInformation =true"
+        class="primary-button text-right"
+        (click)="editInformation = true"
       >
         Edit Information
       </button>
-      <button *ngIf="editInformation"
-        mat-raised-button style="margin-right: 10px;"
-        class="" (click)="editInformation =false"
+      <button
+        *ngIf="editInformation"
+        mat-raised-button
+        style="margin-right: 10px"
+        class=""
+        (click)="editInformation = false"
       >
         Cancel
       </button>
-      <button *ngIf="editInformation"
-        mat-raised-button (click)="saveInformation()"
-        class="primary-button text-right" 
+      <button
+        *ngIf="editInformation"
+        mat-raised-button
+        (click)="saveInformation()"
+        class="primary-button text-right"
       >
         Save
       </button>
@@ -50,19 +67,31 @@
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">School</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.academicInformation.school"
+              />
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Speciality</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.academicInformation.specialty"
+              />
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Reference</div>
             <mat-form-field [style.width.px]="227">
-              <textarea matInput [readonly]="!editInformation"></textarea>
+              <textarea
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.academicInformation.reference"
+              ></textarea>
             </mat-form-field>
           </div>
         </div>
@@ -77,19 +106,31 @@
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Phone</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.contactInformation.phone"
+              />
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Email</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.contactInformation.email"
+              />
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Mobile Phone</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.contactInformation.mobilePhone"
+              />
             </mat-form-field>
           </div>
         </div>
@@ -104,36 +145,60 @@
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Name</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.personalInformation.name"
+              />
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Lastname</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.personalInformation.lastname"
+              />
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">DNI</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.personalInformation.dni"
+              />
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Birth Date</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [matDatepicker]="picker" [readonly]="!editInformation"/>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.personalInformation.birthDate"
+              />
               <mat-datepicker-toggle
                 matIconSuffix
                 [for]="picker"
               ></mat-datepicker-toggle>
-              <mat-datepicker #picker [disabled]="!editInformation"></mat-datepicker>
+              <mat-datepicker
+                #picker
+                [disabled]="!editInformation"
+              ></mat-datepicker>
             </mat-form-field>
           </div>
           <div style="text-align: center" class="label-suave">
             <div style="width: 100%">Address</div>
             <mat-form-field [style.width.px]="227">
-              <input matInput [readonly]="!editInformation"/>
+              <input
+                matInput
+                [readonly]="!editInformation"
+                [(ngModel)]="profileInformation!.personalInformation.address"
+              />
             </mat-form-field>
           </div>
         </div>
@@ -160,14 +225,17 @@
             </button>
           </div>
 
-          <mat-card *ngFor="let experience of jobExperiences" class="example-card">
+          <mat-card
+            *ngFor="let experience of jobExperiences"
+            class="example-card"
+          >
             <mat-card-header>
-              <mat-card-title>{{experience.position}}</mat-card-title>
-              <mat-card-subtitle>{{experience.company}}</mat-card-subtitle>
+              <mat-card-title>{{ experience.position }}</mat-card-title>
+              <mat-card-subtitle>{{ experience.company }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <p>{{experience.time}}</p>
-            </mat-card-content> 
+              <p>{{ experience.time }}</p>
+            </mat-card-content>
           </mat-card>
         </mat-expansion-panel>
       </mat-accordion>

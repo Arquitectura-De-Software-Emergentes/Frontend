@@ -7,7 +7,7 @@ import { ApplicationModule } from './application/application.module';
 import { AssessmentModule } from './assessment/assessment.module';
 import { JobOfferModule } from './job-offer/job-offer.module';
 import { IAMModule } from './iam/iam.module';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -17,9 +17,9 @@ import { IAMModule } from './iam/iam.module';
     ApplicationModule,
     AssessmentModule,
     IAMModule,
-    JobOfferModule,
+    JobOfferModule,HttpClientModule
   ],
-  exports: [],
+  exports: [HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
