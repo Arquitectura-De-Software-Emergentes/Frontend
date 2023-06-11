@@ -1,5 +1,5 @@
 <div style="padding: 25px">
-  <h1 style="width: 100%; text-align: center; font-weight: 500;">Procesos de evaluaciones</h1>
+  <h1 style="width: 100%; text-align: center; font-weight: 500;">Evaluation Processes</h1>
     <div *ngFor="let assessment of assessments" style="padding: 10px;"> 
     <mat-accordion>
         <mat-expansion-panel hideToggle>
@@ -27,7 +27,7 @@
                   font-weight: 500;"
                 selected
                 selectable="false"
-                >{{assessment.avalability==0?'En Curso':'Culminado'}}</mat-chip-option
+                >{{assessment.avalability==0?'Available':'Unavailable'}}</mat-chip-option
               >
               </div>
             </mat-panel-title>
@@ -39,7 +39,7 @@
             </li>
           </div>
           <div style="text-align: right; width: 100%; padding-top: 20px;">
-            <button mat-flat-button class="primary-button" (click)="verDetalles(assessment.id)">Ver detalles</button>
+            <button mat-flat-button class="primary-button" (click)="verDetalles(assessment.id)">View Stages</button>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

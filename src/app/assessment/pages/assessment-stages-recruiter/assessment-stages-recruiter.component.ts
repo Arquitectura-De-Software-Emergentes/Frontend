@@ -14,14 +14,14 @@ export class AssessmentStagesRecruiterComponent implements OnInit {
   assessment: AssessmentResponse = {
     id: '1',
     jobOfferId: 1,
-    title: 'Docente de primaria para curso de Matemáticas',
-    recruiterInstitution: 'Puesto de trabajo para docente de primaria',
+    title: 'Math Teacher',
+    recruiterInstitution: 'High school math teacher required late shift',
     initialDate: new Date(),
     endDate: new Date(),
     avalability: Availability.AVAILABLE,
     assessmentStages: [
-      { activities: [{name: 'Video Presentación'},{name:'Evaluación de razonamiento matemático'}], title: 'Fase 1' },
-      { activities: [{name:'Entrevista'}], title: 'Fase 2' },
+      { activities: [{name: 'Video Presentation'},{name:'Mathematical reasoning test'}], title: 'Stage 1' },
+      { activities: [{name:'Interview'}], title: 'Stage 2' },
     ],
     positionProfile:{
       id:1,
@@ -36,6 +36,6 @@ export class AssessmentStagesRecruiterComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('idProcess')!;
   }
   volver(){
-    this.router.navigate([`recruiter/assessments`])
+    this.router.navigate([`recruiter/assessment`])
   }
 }

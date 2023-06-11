@@ -6,7 +6,7 @@ import { ScheduleInterviewRecruiterComponent } from './pages/schedule-interview-
 
 const routes: Routes = [
   {
-    path: 'assessments',
+    path: '',
     component: AdmAssessmentRecruiterComponent,
   },
   {

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './pages/layout-recruiter/layout-recruiter.component';
 import { LayoutApplicantComponent } from './pages/layout-applicant/layout-applicant.component';
 import { HomeApplicantComponent } from '../application/pages/home-applicant/home-applicant.component';
+import { RegisterApplicantComponent } from '../iam/pages/register-applicant/register-applicant.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'iam',
         loadChildren:()=>import('../iam/iam.module').then(m=>m.IAMModule),
+      },
+      {
+        path:'assessment',
+        loadChildren: () => import('../assessment/assessment.module').then(m=>m.AssessmentModule),
       },
     ]
   },
@@ -45,14 +50,19 @@ const routes: Routes = [
         loadChildren:()=>import('../iam/iam.module').then(m=>m.IAMModule),
       },
     ]
+  },  
+  {
+    path:'register/applicant',
+    component: RegisterApplicantComponent
   },
   {
     path:'',
-    redirectTo:'recruiter', pathMatch: 'full',
+    redirectTo:'register/applicant', pathMatch: 'full',
   },
   {
-    path: '**', redirectTo: 'recruiter'
-  }
+    path: '**', redirectTo: 'register/applicant'
+  },
+
 ]
 @NgModule({
   declarations: [],
