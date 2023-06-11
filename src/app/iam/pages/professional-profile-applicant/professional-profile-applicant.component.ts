@@ -13,10 +13,6 @@ import { ProfessionalProfileReq } from '../../models/professionalProfileReq';
 })
 export class ProfessionalProfileApplicantComponent implements OnInit{
   loading: boolean = false
-  jobExperiences: JobExperienceInformation[] = [
-    { company: 'compañia', position: 'profesor', time: '2 años' },
-    { company: 'compañia', position: 'profesor', time: '2 años' },
-  ];
   editInformation: boolean=false;
   profileInformation: ProfessionalProfileResponse ={
     academicInformation: {
@@ -69,12 +65,26 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
       })
   }
 
+  addExperience(obj: any){
+    this.professionalProfileService.postExperience(obj)
+      .subscribe({
+        next: () => {
+          console.log('success');
+          this.setProfile()
+        }
+      })
+  }
+
   openDialogAddExperience() {
     const dialogRef = this.dialog.open(DialogAddExperienceComponent, {});
     dialogRef.afterClosed().subscribe(result => {
-      if(result)
-      console.log(result);
-      //post job experience here
+      if(result){
+        let aux: JobExperienceInformation ={
+        ...result,
+        applicantProfileId: 8
+      }
+      this.addExperience(aux)
+      }
     });
   }
 

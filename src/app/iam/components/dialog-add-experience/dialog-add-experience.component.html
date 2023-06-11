@@ -23,7 +23,8 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="newJobExperience" class="primary-button">
+  <button mat-button [mat-dialog-close]="newJobExperience" class="primary-button" 
+  [disabled]="!newJobExperience!.position || !newJobExperience!.company || !newJobExperience!.time">
     Save
   </button>
 </mat-dialog-actions>

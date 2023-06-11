@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ProfessionalProfileResponse } from '../models/professionalProfileResponse';
 import { Observable } from 'rxjs';
 import { ProfessionalProfileReq } from '../models/professionalProfileReq';
+import { JobExperienceInformation } from '../models/jobExperienceInformation';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,10 @@ export class ProfessionalProfileService {
   updateProfile(profile: ProfessionalProfileReq, id: number): Observable<ProfessionalProfileResponse> {
     let url= this.apiUrl+`${id}/profile`
     return this.http.put<ProfessionalProfileResponse>(url,profile);
+  }
+
+  postExperience(jobExperience: JobExperienceInformation): Observable<number> {
+    let url= this.apiUrl+`experience`
+    return this.http.post<number>(url, jobExperience);
   }
 }

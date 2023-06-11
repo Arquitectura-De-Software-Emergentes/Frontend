@@ -8,5 +8,5 @@ import { JobExperienceInformation } from '../../models/jobExperienceInformation'
   styleUrls: ['./dialog-add-experience.component.css']
 })
 export class DialogAddExperienceComponent {
-  newJobExperience?: JobExperienceInformation={position:'',company:'', time:''};
+  newJobExperience?: JobExperienceInformation={position:'',company:'', time:'', applicantProfileId:0};
 }
