@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AssessmentResponse, JobOffer } from '../../models/jobOffer';
 import { Router } from '@angular/router';
-import { Availability } from 'src/app/shared/enums';
+import { Availability, Experience, Modality, Type } from 'src/app/shared/enums';
 
 @Component({
   selector: 'app-adm-assessment-recruiter',
@@ -37,6 +37,14 @@ export class AdmAssessmentRecruiterComponent {
         { activities: null, title: 'Fase de revisión de video' },
         { activities: null, title: 'Fase de pruebas de conocimientos' }
       ],
+      positionProfile:{
+        id:1,
+        course:{course:"Math"},
+        experience:Experience.PRACTICER,
+        modality:Modality.VIRTUAL,
+        name:"aeaea",
+        type:Type.PARTTIME
+      }
     },
     {
       id: '2',
@@ -49,7 +57,16 @@ export class AdmAssessmentRecruiterComponent {
       initialDate: new Date(),
       endDate: new Date(),
       avalability: Availability.AVAILABLE,
+      positionProfile:{
+        id:1,
+        course:{course:"Math"},
+        experience:Experience.PRACTICER,
+        modality:Modality.VIRTUAL,
+        name:"aeaea",
+        type:Type.PARTTIME
+      }
     },
+    
   ];
   constructor(private router: Router){}
   verDetalles(id: string):void{

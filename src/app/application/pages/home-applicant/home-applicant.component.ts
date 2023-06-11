@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
 import { DialogCreateOfferComponent } from 'src/app/UI/components/dialog-create-offer/dialog-create-offer.component';
+import { ApplicantService } from '../../services/applicant.service';
 
 @Component({
   selector: 'app-home-applicant',
@@ -22,7 +23,7 @@ import { DialogCreateOfferComponent } from 'src/app/UI/components/dialog-create-
   imports:[DatePipe,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule,MatCardModule,NgFor],
 })
 export class HomeApplicantComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog,private applicantService:ApplicantService) {}
   modify:boolean=false;
   value="";
   name="Toshiro";
@@ -39,6 +40,22 @@ export class HomeApplicantComponent {
       numberApplications:10,
       avalability:Availability.AVAILABLE,
   }
+
+  jobOffers2:JobOffer[]=[];
+
+  ngOnInit():void{
+    this.applicantService.getJobOffers().subscribe(
+      data=>{
+        console.log("data",data)
+        this.jobOffers2=data;
+        
+      }
+    );
+
+    console.log("DATITOS",this.jobOffers2)
+  }
+
+  
 
   jobOffers:JobOffer[]=[
     {

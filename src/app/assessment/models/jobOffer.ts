@@ -1,7 +1,7 @@
-import { Availability } from "src/app/shared/enums";
+import { Availability, Currency, Experience, Modality, Type } from "src/app/shared/enums";
 
 export interface JobOffer {
-  id: number
+  id: number;
   recruiterId: number;
   title: string;
   description: string;
@@ -13,27 +13,58 @@ export interface JobOffer {
   avalability: Availability;
 }
 
+export interface Salary{
+  mount:number;
+  currency:Currency;
+}
+
 export interface AssessmentResponse{
-  id: string
+  id: string;
   jobOfferId: number;
   assessmentStages: AssessmentStage[] | null;
-  recruiterInstitution: string
+  recruiterInstitution: string;
   title: string;
   initialDate: Date;
   endDate: Date;
   avalability: Availability;
+  positionProfile:PositionProfile;
+}
+interface Course{
+  course:string
 }
 
-export interface AssessmentStage{
+interface PositionProfile{
+id:number;
+course:Course;
+experience:Experience;
+modality:Modality;
+name:string;
+type:Type;
+
+}
+
+ interface AssessmentStage{
   activities: Activity[]|null;
   title: string
 }
 
-export interface AssessmentStageAnalysis{
+ interface AssessmentStageAnalysis{
   activities: Activity[]|null;
   title: string;
 }
 
-export interface Activity{
+ interface Activity{
   name: string
+}
+
+export interface JobOffer2{
+  id:number;
+  recruiterId:number;
+  title:string;
+  description:string;
+  initialDate:Date;
+  endDate:Date;
+  numberApplications:number;
+  maxApplications:number;
+
 }

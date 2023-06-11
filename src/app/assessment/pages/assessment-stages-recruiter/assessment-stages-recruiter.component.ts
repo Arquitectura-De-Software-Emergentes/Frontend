@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssessmentResponse } from '../../models/jobOffer';
-import { Availability } from 'src/app/shared/enums';
+import { Availability, Experience, Modality, Type } from 'src/app/shared/enums';
 
 @Component({
   selector: 'app-assessment-stages-recruiter',
@@ -23,6 +23,14 @@ export class AssessmentStagesRecruiterComponent implements OnInit {
       { activities: [{name: 'Video Presentación'},{name:'Evaluación de razonamiento matemático'}], title: 'Fase 1' },
       { activities: [{name:'Entrevista'}], title: 'Fase 2' },
     ],
+    positionProfile:{
+      id:1,
+      course:{course:"Math"},
+      experience:Experience.PRACTICER,
+      modality:Modality.VIRTUAL,
+      name:"aeaea",
+      type:Type.PARTTIME
+    }
   };
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('idProcess')!;
