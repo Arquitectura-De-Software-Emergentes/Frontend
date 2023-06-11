@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AssessmentResponse, JobOffer } from '../../models/jobOffer';
 import { Router } from '@angular/router';
-import { Availability, Experience, Modality, Type } from 'src/app/shared/enums';
+import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
 
 @Component({
   selector: 'app-adm-assessment-recruiter',
@@ -18,10 +18,18 @@ export class AdmAssessmentRecruiterComponent {
       description: 'Puesto de trabajo para docente de primaria',
       initialDate: new Date(),
       endDate: new Date(),
-      salary: 5000,
+      salary: {mount:10000,currency:Currency.PEN},
       maxApplications: 40,
       numberApplications: 20,
       avalability: Availability.AVAILABLE,
+      positionProfile:{
+        id:1,
+        course:{course:"Math"},
+        experience:Experience.PRACTICER,
+        modality:Modality.VIRTUAL,
+        name:"aeaea",
+        type:Type.PARTTIME
+      }
     },
   ];
   assessments: AssessmentResponse[] = [

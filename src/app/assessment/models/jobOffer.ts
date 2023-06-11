@@ -7,13 +7,14 @@ export interface JobOffer {
   description: string;
   initialDate: Date;
   endDate: Date;
-  salary: number;
+  salary: Salary;
   maxApplications: number;
   numberApplications: number;
   avalability: Availability;
+  positionProfile:PositionProfile;
 }
 
-export interface Salary{
+ interface Salary{
   mount:number;
   currency:Currency;
 }

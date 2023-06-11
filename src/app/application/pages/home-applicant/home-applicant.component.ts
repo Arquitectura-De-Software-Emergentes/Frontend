@@ -8,7 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { JobOffer } from 'src/app/assessment/models/jobOffer';
-import { Availability } from 'src/app/shared/enums';
+import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
@@ -35,114 +35,35 @@ export class HomeApplicantComponent {
       description:'High School math teacher required late shift',
       initialDate:new Date(),
       endDate: new Date(),
-      salary:10000,
+      salary:{mount:10000,currency:Currency.PEN},
       maxApplications:30,
       numberApplications:10,
       avalability:Availability.AVAILABLE,
+      positionProfile:{
+        id:1,
+        course:{course:"Math"},
+        experience:Experience.PRACTICER,
+        modality:Modality.VIRTUAL,
+        name:"aeaea",
+        type:Type.PARTTIME
+      }
   }
 
-  jobOffers2:JobOffer[]=[];
+  jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
     this.applicantService.getJobOffers().subscribe(
       data=>{
-        console.log("data",data)
-        this.jobOffers2=data;
-        
+        this.jobOffers=data;
       }
     );
-
-    console.log("DATITOS",this.jobOffers2)
   }
 
-  
-
-  jobOffers:JobOffer[]=[
-    {
-      id:1,
-      recruiterId:1,
-      title:'Software Architecture Teacher',
-      description:'From Upc, needs to delegate  task to students',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:10000,
-      maxApplications:30,
-      numberApplications:10,
-      avalability:Availability.AVAILABLE,
-    },
-    {
-      id:2,
-      recruiterId:1,
-      title:'Vallejo Prompter',
-      description:'Do not use chat gpt to apply for this job, automated disqualified',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:10000,
-      maxApplications:30,
-      numberApplications:10,
-      avalability:Availability.AVAILABLE,
-    },
-    {
-      id:3,
-      recruiterId:1,
-      title:'Want a Job?',
-      description:'Yes I want bro',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:10000,
-      maxApplications:30,
-      numberApplications:10,
-      avalability:Availability.AVAILABLE,
-    },
-    {
-      id:4,
-      recruiterId:1,
-      title:'Math Teacher',
-      description:'High School math teacher required late shift',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:10000,
-      maxApplications:30,
-      numberApplications:10,
-      avalability:Availability.AVAILABLE,
-    },
-    {
-      id:5,
-      recruiterId:1,
-      title:'Science Teacher',
-      description:'Proffesional graduated with 10 years experience working on NASA',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:10,
-      maxApplications:15,
-      numberApplications:10,
-      avalability:Availability.AVAILABLE,
-    },
-    
-  ]
-  
-
   viewOffer(id:number):void{
-    let jobOfferExpanded:JobOffer={
-      id:this.jobOffers[id].id,
-      recruiterId:this.jobOffers[id].recruiterId,
-      title:this.jobOffers[id].title,
-      description:this.jobOffers[id].description,
-      initialDate:this.jobOffers[id].initialDate,
-      endDate: this.jobOffers[id].endDate,
-      salary:this.jobOffers[id].salary,
-      maxApplications:this.jobOffers[id].maxApplications,
-      numberApplications:this.jobOffers[id].numberApplications,
-      avalability:this.jobOffers[id].avalability,
-  };
-
-  this.jobOfferExpanded=jobOfferExpanded;
-   
+    this.jobOfferExpanded=this.jobOffers[id];
   }
 
   save():void{
-    console.log("nuevo valor",this.jobOfferExpanded.title)
-  
     let dialogRef = this.dialog.open(DialogComponentComponent, {
       width: '250px',
       data: {
