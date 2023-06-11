@@ -4,11 +4,13 @@ import { UiModule } from '../UI/ui.module';
 import { RouterModule } from '@angular/router';
 import { IamRoutingModule } from './iam-routing.module';
 import { ProfessionalProfileApplicantComponent } from './pages/professional-profile-applicant/professional-profile-applicant.component';
+import { DialogAddExperienceComponent } from './components/dialog-add-experience/dialog-add-experience.component';
 
 
 @NgModule({
   declarations: [
-    ProfessionalProfileApplicantComponent
+    ProfessionalProfileApplicantComponent,
+    DialogAddExperienceComponent
   ],
   imports: [
     CommonModule,

@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     SnackBarComponent,
@@ -39,7 +40,8 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,FormsModule
   ],
   exports: [
     MatSidenavModule,
@@ -57,7 +59,8 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     MatNativeDateModule,
     MatInputModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,FormsModule
   ],
 })
 export class UiModule {}
