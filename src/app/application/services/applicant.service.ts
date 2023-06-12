@@ -15,7 +15,7 @@ export class ApplicantService {
   }
 
   getJobOffersByIdRecruiter(id: number):Observable<JobOffer[]> {
-    let url= this.apiUrl+`/recruiter/${id}`
+    let url= this.apiUrl+`recruiter/${id}`
     return this.http.get<JobOffer[]>(url);
   }
   applyToJobOffer(jobOfferId:number,applicantId:number):Observable<string>{
