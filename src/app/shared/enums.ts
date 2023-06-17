@@ -1,6 +1,6 @@
 export enum Currency{
-    PEN,
-    USD
+    PEN = 'PEN',
+    USD = 'USD'
 }
 
 export enum Availability{
@@ -9,19 +9,19 @@ export enum Availability{
 }
 
 export enum Experience{
-    PRACTICER,
-    NONE,
-    LESSTHAN3YEARS,
-    MORETHAN3YEARS
+    PRACTICE = 'Practice',
+    NONE = 'None',
+    LESSTHAN3YEARS = 'Less than 3 years',
+    MORETHAN3YEARS = 'More than 3 years'
 }
 
 export enum Type{
-    PARTTIME,
-    FULLTIME
+    PART_TIME = 'Part time',
+    FULL_TIME = 'Full time'
 }
 
 export enum Modality{
-    VIRTUAL,
-    PRESENTIAL,
-    SEMIPRESENTIAL
+    VIRTUAL = 'Virtual',
+    ON_SITE = 'On Site',
+    BLENDED = 'Blended'
 }

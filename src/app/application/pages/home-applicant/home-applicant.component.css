@@ -16,3 +16,18 @@
 .oferta:hover{
     width: 95%;
 }
+
+.row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .column {
+    flex-basis: 48%;
+  }
+
+  .padding-offer{
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;font-weight: 500;font-size:medium;
+  }

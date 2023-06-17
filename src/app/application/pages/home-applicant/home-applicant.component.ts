@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
 import { DialogCreateOfferComponent } from 'src/app/UI/components/dialog-create-offer/dialog-create-offer.component';
 import { ApplicantService } from '../../services/applicant.service';
+import { JobOfferService } from 'src/app/job-offer/services/job-offer.service';
 
 
 @Component({
@@ -22,38 +23,46 @@ import { ApplicantService } from '../../services/applicant.service';
   styleUrls: ['./home-applicant.component.css'],
 })
 export class HomeApplicantComponent {
-  constructor(private dialog: MatDialog,private applicantService:ApplicantService) {}
+  constructor(private dialog: MatDialog,private jobOfferService:JobOfferService) {}
   modify:boolean=false;
+  
+  public modality = Modality;
   value="";
   name="Toshiro";
   userType="Applicant"
   jobOfferExpanded:JobOffer={
-      id:1,
-      recruiterId:1,
-      title:'Math Teacher',
-      description:'High School math teacher required late shift',
-      initialDate:new Date(),
-      endDate: new Date(),
-      salary:{mount:10000,currency:Currency.PEN},
-      maxApplications:30,
-      numberApplications:10,
-      availability:Availability.AVAILABLE,
-      positionProfile:{
-        id:1,
-        course:{course:"Math"},
-        experience:Experience.PRACTICER,
-        modality:Modality.VIRTUAL,
-        name:"aeaea",
-        type:Type.PARTTIME
-      }
+    id: 0,
+    recruiterId: 0,
+    title: '',
+    description: '',
+    initialDate: new Date,
+    endDate: new Date,
+    salary: {
+      mount: 0,
+      currency: Currency.PEN
+    },
+    maxApplications: 0,
+    numberApplications: 0,
+    availability: Availability.AVAILABLE,
+    positionProfile: {
+      id: 0,
+      course: {
+        course: ''
+      },
+      experience: Experience.PRACTICE,
+      modality: Modality.VIRTUAL,
+      name: '',
+      type: Type.PART_TIME
+    }
   }
 
   jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
-    this.applicantService.getJobOffers().subscribe(
+    this.jobOfferService.getJobOffers().subscribe(
       data=>{
         this.jobOffers=data;
+        this.jobOfferExpanded=this.jobOffers[0]
       }
     );
   }
@@ -64,23 +73,17 @@ export class HomeApplicantComponent {
 
   apply():void{
     let dialogRef = this.dialog.open(DialogComponentComponent, {
-      width: '250px',
+      width: '550px',
       data: {
-        title: 'Are you sure?',
+        title: 'Are you sure to apply to this job offer?',
         accepted:false,
       }
     });
-    dialogRef.afterClosed().subscribe(result=>{
-      console.log("aceptado?",result.accepted)
-      console.log("Resultado?",result)
-      if (result && result.accepted) {
-        this.jobOffers[this.jobOfferExpanded.id-1].title=this.jobOfferExpanded.title;
-        console.log('Aceptar');
-      } else {
-        this.jobOfferExpanded.title=this.jobOffers[this.jobOfferExpanded.id-1].title;
-        console.log('Cancelar');
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.jobOfferService.applyToJobOffer(this.jobOfferExpanded.id,1)
       }
-    })
+      })
   }
 
   save():void{
@@ -96,10 +99,10 @@ export class HomeApplicantComponent {
       console.log("aceptado?",result.accepted)
       console.log("Resultado?",result)
       if (result && result.accepted) {
-        this.jobOffers[this.jobOfferExpanded.id-1].title=this.jobOfferExpanded.title;
+        this.jobOffers[this.jobOfferExpanded!.id-1].title=this.jobOfferExpanded!.title;
         console.log('Aceptar');
       } else {
-        this.jobOfferExpanded.title=this.jobOffers[this.jobOfferExpanded.id-1].title;
+        this.jobOfferExpanded!.title=this.jobOffers[this.jobOfferExpanded!.id-1].title;
         console.log('Cancelar');
       }
     })

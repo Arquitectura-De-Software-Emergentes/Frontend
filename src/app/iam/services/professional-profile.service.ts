@@ -11,7 +11,7 @@ import { CVResponse } from '../models/cvResponse';
 })
 export class ProfessionalProfileService {
 
-  readonly apiUrl: string = 'http://ec2-3-95-18-5.compute-1.amazonaws.com:8080/api/v1/' + 'applicants/';
+  readonly apiUrl: string = 'https://ec2-3-95-18-5.compute-1.amazonaws.com:8080/api/v1/' + 'applicants/';
   constructor(private http: HttpClient) {}
 
   getProfile(id: number): Observable<ProfessionalProfileResponse> {
