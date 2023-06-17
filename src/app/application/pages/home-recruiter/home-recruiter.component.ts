@@ -42,10 +42,10 @@ export class HomeRecruiterComponent {
       positionProfile:{
         id:1,
         course:{course:"Math"},
-        experience:Experience.PRACTICER,
+        experience:Experience.PRACTICE,
         modality:Modality.VIRTUAL,
         name:"aeaea",
-        type:Type.PARTTIME
+        type:Type.PART_TIME
       }
   }
 

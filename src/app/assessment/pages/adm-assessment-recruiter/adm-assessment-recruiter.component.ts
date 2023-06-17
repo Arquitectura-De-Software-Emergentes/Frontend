@@ -10,6 +10,7 @@ import { Availability, Currency, Experience, Modality, Type } from 'src/app/shar
 })
 export class AdmAssessmentRecruiterComponent {
   panelOpenState = false;
+  public availability = Availability;
   jobOffers: JobOffer[] = [
     {
       id: 1,
@@ -25,10 +26,10 @@ export class AdmAssessmentRecruiterComponent {
       positionProfile:{
         id:1,
         course:{course:"Math"},
-        experience:Experience.PRACTICER,
+        experience:Experience.PRACTICE,
         modality:Modality.VIRTUAL,
         name:"aeaea",
-        type:Type.PARTTIME
+        type:Type.PART_TIME
       }
     },
   ];
@@ -48,10 +49,10 @@ export class AdmAssessmentRecruiterComponent {
       positionProfile:{
         id:1,
         course:{course:"Math"},
-        experience:Experience.PRACTICER,
+        experience:Experience.PRACTICE,
         modality:Modality.VIRTUAL,
         name:"aeaea",
-        type:Type.PARTTIME
+        type:Type.PART_TIME
       }
     },
     {
@@ -68,10 +69,10 @@ export class AdmAssessmentRecruiterComponent {
       positionProfile:{
         id:1,
         course:{course:"Math"},
-        experience:Experience.PRACTICER,
+        experience:Experience.PRACTICE,
         modality:Modality.VIRTUAL,
         name:"aeaea",
-        type:Type.PARTTIME
+        type:Type.PART_TIME
       }
     },
     
