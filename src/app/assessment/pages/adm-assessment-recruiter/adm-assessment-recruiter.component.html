@@ -25,9 +25,9 @@
                 style="background-color: #11b774;
                   color: white !important;
                   font-weight: 500;"
-                selected
+                [selected]="assessment.avalability==availability.AVAILABLE"
                 selectable="false"
-                >{{assessment.avalability==0?'Available':'Unavailable'}}</mat-chip-option
+                >{{assessment.avalability}}</mat-chip-option
               >
               </div>
             </mat-panel-title>

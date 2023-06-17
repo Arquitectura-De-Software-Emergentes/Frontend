@@ -57,15 +57,3 @@ type:Type;
  interface Activity{
   name: string
 }
-
-export interface JobOffer2{
-  id:number;
-  recruiterId:number;
-  title:string;
-  description:string;
-  initialDate:Date;
-  endDate:Date;
-  numberApplications:number;
-  maxApplications:number;
-
-}

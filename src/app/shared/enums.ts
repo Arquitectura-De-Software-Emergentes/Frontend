@@ -4,8 +4,8 @@ export enum Currency{
 }
 
 export enum Availability{
-    AVAILABLE,
-    UNAVAILABLE
+    AVAILABLE='Available',
+    UNAVAILABLE='Unavailable'
 }
 
 export enum Experience{

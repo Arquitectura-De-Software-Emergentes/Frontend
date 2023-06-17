@@ -22,6 +22,6 @@ export class JobOfferService {
   
   applyToJobOffer(jobOfferId:number,applicantId:number):Observable<string|ErrorResponse>{
     let url= this.apiUrl+`/${jobOfferId}/apply/${applicantId}`
-    return this.http.get<string|ErrorResponse>(url);
+    return this.http.post<string|ErrorResponse>(url,null);
   }
 }

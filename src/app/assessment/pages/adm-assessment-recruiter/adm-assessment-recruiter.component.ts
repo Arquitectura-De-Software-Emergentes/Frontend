@@ -10,6 +10,7 @@ import { Availability, Currency, Experience, Modality, Type } from 'src/app/shar
 })
 export class AdmAssessmentRecruiterComponent {
   panelOpenState = false;
+  public availability = Availability;
   jobOffers: JobOffer[] = [
     {
       id: 1,

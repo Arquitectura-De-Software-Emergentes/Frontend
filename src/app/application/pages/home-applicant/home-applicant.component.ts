@@ -1,21 +1,11 @@
 import { Component } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {NgIf} from '@angular/common';
-import { NgFor } from '@angular/common';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCardModule} from '@angular/material/card';
-import { JobOffer } from 'src/app/assessment/models/jobOffer';
-import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
-import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
-import { DialogCreateOfferComponent } from 'src/app/UI/components/dialog-create-offer/dialog-create-offer.component';
-import { ApplicantService } from '../../services/applicant.service';
 import { JobOfferService } from 'src/app/job-offer/services/job-offer.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.component';
+import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
+import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
 
 @Component({
   selector: 'app-home-applicant',
@@ -23,10 +13,11 @@ import { JobOfferService } from 'src/app/job-offer/services/job-offer.service';
   styleUrls: ['./home-applicant.component.css'],
 })
 export class HomeApplicantComponent {
-  constructor(private dialog: MatDialog,private jobOfferService:JobOfferService) {}
+  constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar) {}
   modify:boolean=false;
-  
-  public modality = Modality;
+  showSpinner: boolean=false;
+  idApplicant: number=7;
+  public availability = Availability;
   value="";
   name="Toshiro";
   userType="Applicant"
@@ -43,7 +34,7 @@ export class HomeApplicantComponent {
     },
     maxApplications: 0,
     numberApplications: 0,
-    availability: Availability.AVAILABLE,
+    availability: 'AVAILABLE',
     positionProfile: {
       id: 0,
       course: {
@@ -59,16 +50,18 @@ export class HomeApplicantComponent {
   jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
-    this.jobOfferService.getJobOffers().subscribe(
-      data=>{
-        this.jobOffers=data;
-        this.jobOfferExpanded=this.jobOffers[0]
-      }
-    );
+    this.setAllJobOffer()
   }
 
-  viewOffer(id:number):void{
-    this.jobOfferExpanded=this.jobOffers[id];
+  setAllJobOffer(): void{
+    this.showSpinner=true;
+     this.jobOfferService.getJobOffers().subscribe(
+      data=>{
+        this.jobOffers=data;
+        this.jobOfferExpanded=this.jobOffers[0];
+        this.showSpinner=false;
+      }
+    );
   }
 
   apply():void{
@@ -81,37 +74,23 @@ export class HomeApplicantComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        this.jobOfferService.applyToJobOffer(this.jobOfferExpanded.id,1)
-      }
-      })
-  }
-
-  save():void{
-    let dialogRef = this.dialog.open(DialogComponentComponent, {
-      width: '250px',
-      data: {
-        title: 'Are you sure?',
-        accepted:false,
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result=>{
-      console.log("aceptado?",result.accepted)
-      console.log("Resultado?",result)
-      if (result && result.accepted) {
-        this.jobOffers[this.jobOfferExpanded!.id-1].title=this.jobOfferExpanded!.title;
-        console.log('Aceptar');
-      } else {
-        this.jobOfferExpanded!.title=this.jobOffers[this.jobOfferExpanded!.id-1].title;
-        console.log('Cancelar');
+        this.jobOfferService.applyToJobOffer(this.jobOfferExpanded.id,this.idApplicant).subscribe({
+          error:(error)=>{
+            if(error.error.text){
+              this._snackBar.openFromComponent(SnackBarComponent, {
+                duration: 5000, data: {message: 'You successfully applied', status:'success'},
+                panelClass: ['success-snackbar'], 
+              });
+            }
+            if(error.error.message){
+              this._snackBar.openFromComponent(SnackBarComponent, {
+              duration: 5000, data: {message: error.error.message, status:'warning'},
+              panelClass: ['warning-snackbar'], 
+            });
+            }
+          },
+        })
       }
     })
   }
-
-  createOffer():void{
-    this.dialog.open(DialogCreateOfferComponent,{
-      data:'',
-    });
-  }
-
 }

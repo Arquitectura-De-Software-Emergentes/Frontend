@@ -12,6 +12,6 @@ export interface JobOffer {
   salary: Salary;
   maxApplications: number;
   numberApplications: number;
-  availability: Availability;
+  availability: String;
   positionProfile: PositionProfile;
 }
