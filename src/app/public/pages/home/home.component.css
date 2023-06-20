@@ -1,0 +1,104 @@
+.two-column-container {
+    display: flex;height: 100%; 
+    flex-wrap: wrap; 
+    overflow-x: hidden;
+}
+
+
+.static-column {
+    width: 100%;
+}
+
+.scrollable-column {
+    flex-basis: 100%; /*tamaño movil*/
+    overflow: auto;
+    height: 100%;
+}
+
+.scrollable-content {
+    width: 100%;
+}
+@media (min-width: 767px) {
+    /* Estilos para dispositivos móviles con un ancho máximo de 767px */
+    .two-column-container {
+      flex-direction: column; /* Cambiar a diseño de columna */
+    }
+    .scrollable-column {
+        overflow-x: hidden;
+        height: 100%;
+        width: 60% !important;
+    }
+
+    .static-column{
+      flex-basis: 50%; /* Ocupar todo el ancho disponible */
+      height: 100% !important;
+      width: 35% !important;
+    }
+}
+
+@media (max-width: 766px) {
+    .two-column-container {
+    height: 100%; 
+    flex-wrap: wrap; 
+    }
+
+    .static-column {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .scrollable-column {
+        flex-basis: 100%; /*tamaño movil*/
+        overflow: auto;
+        padding: 10px;
+        height: 100%;
+    }
+
+    .scrollable-content {
+        padding-top: 30px;
+        width: 100%;
+    }
+}
+
+
+.example-form-field{
+    margin: 2%;
+    width: 31.25rem;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover; 
+}
+
+.oferta{
+    width: 98%; 
+    transition: width 0.3s, height 0.3s;
+}
+
+.oferta:hover{
+    width: 95%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .column {
+    flex-basis: 48%;
+  }
+
+  .padding-offer{
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;font-weight: 500;font-size:medium;
+  }
+
+  .available{
+    background-color: #00c878 !important;
+  }
+
+  .unavailable{
+    background-color: #d4d4d4 !important;
+  }

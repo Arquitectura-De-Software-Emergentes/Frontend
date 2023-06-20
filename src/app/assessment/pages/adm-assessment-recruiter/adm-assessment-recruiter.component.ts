@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AssessmentResponse, JobOffer } from '../../models/jobOffer';
 import { Router } from '@angular/router';
+import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
 import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
+import { AssessmentResponse } from '../../models/assessment-response';
 
 @Component({
   selector: 'app-adm-assessment-recruiter',

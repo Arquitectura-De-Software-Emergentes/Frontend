@@ -6,17 +6,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.component';
 import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
 import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-applicant',
-  templateUrl: './home-applicant.component.html',
-  styleUrls: ['./home-applicant.component.css'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class HomeApplicantComponent {
-  constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar) {}
-  modify:boolean=false;
+export class HomeComponent {
+  constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar,
+    private router: Router) {}
   showSpinner: boolean=false;
   idApplicant: number=7;
+  isApplicant: boolean=false;
   public availability = Availability;
   value="";
   name="Toshiro";
@@ -55,13 +57,23 @@ export class HomeApplicantComponent {
 
   setAllJobOffer(): void{
     this.showSpinner=true;
-     this.jobOfferService.getJobOffers().subscribe(
-      data=>{
-        this.jobOffers=data;
-        this.jobOfferExpanded=this.jobOffers[0];
-        this.showSpinner=false;
-      }
-    );
+    if(this.isApplicant){
+        this.jobOfferService.getJobOffers().subscribe(
+        data=>{
+          this.jobOffers=data;
+          this.jobOfferExpanded=this.jobOffers[0];
+          this.showSpinner=false;
+        }
+      );
+    }else{
+      this.jobOfferService.getJobOffersByIdRecruiter(1).subscribe(
+        data=>{
+          this.jobOffers=data;
+          this.jobOfferExpanded=this.jobOffers[0];
+          this.showSpinner=false;
+        }
+      );
+    }
   }
 
   apply():void{
@@ -92,5 +104,13 @@ export class HomeApplicantComponent {
         })
       }
     })
+  }
+
+  goEditJobOffer(){
+
+  }
+
+  goToCreate(){
+    this.router.navigate([`job-offer/create`])
   }
 }

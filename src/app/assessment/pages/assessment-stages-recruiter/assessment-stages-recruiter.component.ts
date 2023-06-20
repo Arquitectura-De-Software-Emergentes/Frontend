@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AssessmentResponse } from '../../models/jobOffer';
 import { Availability, Experience, Modality, Type } from 'src/app/shared/enums';
+import { AssessmentResponse } from '../../models/assessment-response';
 
 @Component({
   selector: 'app-assessment-stages-recruiter',
