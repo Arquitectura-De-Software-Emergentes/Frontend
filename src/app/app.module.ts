@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     ApplicationModule,
     AssessmentModule,
     IAMModule,
-    JobOfferModule,HttpClientModule
+    JobOfferModule,
+    HttpClientModule
   ],
   exports: [HttpClientModule],
   providers: [],

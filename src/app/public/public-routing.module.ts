@@ -1,73 +1,47 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutRecruiterComponent } from './pages/layout-recruiter/layout-recruiter.component';
-import { LayoutApplicantComponent } from './pages/layout-applicant/layout-applicant.component';
-import { HomeRecruiterComponent } from '../application/pages/home-recruiter/home-recruiter.component';
-import { RegisterApplicantComponent } from '../iam/pages/register-applicant/register-applicant.component';
-import { HomeApplicantComponent } from '../application/pages/home-applicant/home-applicant.component';
-
+import { HomeComponent } from './pages/home/home.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 
 const routes: Routes = [
   {
-    path:'recruiter',
-    component:LayoutRecruiterComponent,
+    path: '',
+    component: LayoutComponent,
     children:[
       {
-        path:'',
-        component:HomeRecruiterComponent
-      },
-      {
-        path: 'application',
-        loadChildren: () => import('../application/application.module').then(m => m.ApplicationModule),
+        path:'home',
+        component: HomeComponent
       },
       {
         path: 'iam',
-        loadChildren:()=>import('../iam/iam.module').then(m=>m.IAMModule),
+        loadChildren: () =>
+          import('../iam/iam.module').then((m) => m.IAMModule),
       },
       {
-        path:'assessment',
-        loadChildren: () => import('../assessment/assessment.module').then(m=>m.AssessmentModule),
-      },
-    ]
-  },
-  {
-    path:'applicant',
-    component: LayoutApplicantComponent,
-    children:[
-      {
-        path:'',
-        component:HomeApplicantComponent
+        path: 'job-offer',
+        loadChildren: () =>
+          import('../job-offer/job-offer.module').then((m) => m.JobOfferModule),
       },
       {
-        path:'assessment',
-        loadChildren: () => import('../assessment/assessment.module').then(m=>m.AssessmentModule),
+        path: 'assessment',
+        loadChildren: () =>
+          import('../assessment/assessment.module').then(
+            (m) => m.AssessmentModule
+          ),
       },
       {
         path: 'application',
-        loadChildren: () => import('../application/application.module').then(m => m.ApplicationModule),
-      },
-      {
-        path: 'iam',
-        loadChildren:()=>import('../iam/iam.module').then(m=>m.IAMModule),
-      },
+        loadChildren: () =>
+          import('../application/application.module').then(
+            (m) => m.ApplicationModule
+          ),
+      }
     ]
-  },  
-  {
-    path:'register/applicant',
-    component: RegisterApplicantComponent
-  },
-  {
-    path:'',
-    redirectTo:'register/applicant', pathMatch: 'full',
-  },
-  {
-    path: '**', redirectTo: 'register/applicant'
-  },
-
-]
+  }
+];
 @NgModule({
   declarations: [],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PublicRoutingModule { }
+export class PublicRoutingModule {}

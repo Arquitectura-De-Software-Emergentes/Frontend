@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutRecruiterComponent } from './pages/layout-recruiter/layout-recruiter.component';
 import { UiModule } from '../UI/ui.module';
 import { PublicRoutingModule } from './public-routing.module';
-import { LayoutApplicantComponent } from './pages/layout-applicant/layout-applicant.component';
-
-
+import { HomeComponent } from './pages/home/home.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { MenuApplicantComponent } from './components/menu-applicant/menu-applicant.component';
+import { MenuRecruiterComponent } from './components/menu-recruiter/menu-recruiter.component';
+import { ApplicationModule } from '../application/application.module';
 
 @NgModule({
-  declarations: [ LayoutApplicantComponent,LayoutRecruiterComponent],
-  imports: [
-    CommonModule, UiModule, PublicRoutingModule,
+  declarations: [
+    HomeComponent,
+    LayoutComponent,
+    MenuApplicantComponent,
+    MenuRecruiterComponent,
   ],
-  exports:[]
-  
+  imports: [CommonModule, UiModule, PublicRoutingModule, ApplicationModule],
+  exports: [],
 })
-export class PublicModule { }
+export class PublicModule {}

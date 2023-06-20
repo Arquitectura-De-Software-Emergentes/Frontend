@@ -3,3 +3,7 @@
     color: white !important;
     font-weight: 500 !important;
 }
+
+button:disabled{
+    background-color: #6d6d81 !important;
+}
