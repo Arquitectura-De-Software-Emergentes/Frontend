@@ -27,12 +27,9 @@
     border-radius: 25%;
     font-size: 1.15rem;
 }
-.personalinfo ul{
-    list-style-type: none;
-}
-.personalinfo ul li{
-    font-size: 1rem;
-    margin-top: 2rem;
+.resume{
+    font-size: 1.05rem;
+    box-sizing: border-box;
 }
 .content{
     display: flex;
@@ -49,4 +46,15 @@
 .locate h3{
     font-size: 1.25rem;
     line-height: 1rem;
+}
+.available-recruiter{
+    margin-left: 5rem;
+    align-items: center;
+}
+.available-recruiter h3{
+    font-size: 1.25rem;
+}
+.mat-card-content{
+    display: flex;
+    gap: 0.50rem;
 }
