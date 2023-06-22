@@ -1,0 +1,16 @@
+<div
+        *ngFor="let test of tests"
+        style="margin: 2%; box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4)"
+        class="oferta">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{ test.minimunscore }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ test.numQuestions }}
+            </p>
+            <br />
+          </mat-card-content>
+        </mat-card>
+      </div>
