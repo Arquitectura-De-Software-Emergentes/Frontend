@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .profilepic{
     width: 12.5rem;
     height: 12.5rem;
@@ -15,6 +20,9 @@
     font-size: 1.15rem;
     margin-top: 5rem;
     margin-left: 27rem;
+    background-color: #171740 !important;
+    color: white !important;
+    font-weight: 500 !important;
 }
 .personalinfo h2{
     font-weight: 700;
@@ -22,7 +30,7 @@
     line-height: 1.75rem;
     width: 29.688rem;
     margin-top: 2rem;
-    margin-left: 6.75rem;
+    margin-left: 9.55rem;
     height: 5rem;
 }
 .resume{
@@ -31,13 +39,16 @@
     box-sizing: border-box;
 }
 .content{
+    position: relative;
     display: flex;
     margin-top: 7rem;
     margin-left: 5rem;
+    justify-content: center;
     align-items: center;
 }
 .social{
     margin-left: 2rem;
+    justify-content: center;
     align-items: center;
 }
 .locate{
