@@ -9,6 +9,9 @@ import { AssessmentRoutingModule } from './assessment-routing.module';
 import { AssessmentStagesRecruiterComponent } from './pages/assessment-stages-recruiter/assessment-stages-recruiter.component';
 import { ScheduleInterviewRecruiterComponent } from './pages/schedule-interview-recruiter/schedule-interview-recruiter.component';
 import { DialogScheduleInterviewComponent } from './components/dialog-schedule-interview/dialog-schedule-interview.component';
+import { AdmTestsComponent } from './pages/adm-tests/adm-tests.component';
+import { FormTestComponent } from './pages/form-test/form-test.component';
+import { DialogOptionsComponent } from './components/dialog-options/dialog-options.component';
 @NgModule({
   declarations: [
     EvaluationsComponent,
@@ -18,6 +21,9 @@ import { DialogScheduleInterviewComponent } from './components/dialog-schedule-i
     AssessmentStagesRecruiterComponent,
     ScheduleInterviewRecruiterComponent,
     DialogScheduleInterviewComponent,
+    AdmTestsComponent,
+    FormTestComponent,
+    DialogOptionsComponent,
   ],
   imports: [CommonModule, UiModule, AssessmentRoutingModule],
 })
