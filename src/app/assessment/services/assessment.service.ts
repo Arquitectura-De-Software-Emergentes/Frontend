@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AssessmentService {
-  readonly apiUrl: string = 'http://teacher-finder.up.railway.app/api/v1/assessments'
+  readonly apiUrl: string = 'https://teacher-finder.up.railway.app/api/v1/assessments'
   constructor(private http:HttpClient) { }
 
   getTestsByRecruiter(idRecruiter:number):Observable<TestResponse[]>{
-    let url= this.apiUrl+`/recuiter/${idRecruiter}/tests?recuiterId=${idRecruiter}`
+    let url= this.apiUrl+`/recruiter/${idRecruiter}/tests?recruiterId=${idRecruiter}`
     return this.http.get<TestResponse[]>(url);
   }
 
@@ -28,5 +28,10 @@ export class AssessmentService {
   getTestById(idTest: number){
     let url= this.apiUrl+`/tests/${idTest}?testId=${idTest}`
     return this.http.get<TestResponse>(url);
+  }
+
+  submitTest(idJoboffer: number, idApplicant: number, test: TestResponse){
+    let url= this.apiUrl+`/${idJoboffer}/test/applicant/${idApplicant}/submit?jobOfferId=${idJoboffer}&applicantId=${idApplicant}`
+    return this.http.post<number>(url,test.questions);
   }
 }
