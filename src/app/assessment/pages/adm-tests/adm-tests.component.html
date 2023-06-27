@@ -1,16 +1,37 @@
+<div style="padding: 25px">
+  <h1 style="width: 100%; text-align: center; font-weight: 500;">Tests</h1>
+<div style="text-align: right; margin: 2%;">
+  <button mat-raised-button (click)="goCreate()"
+  class="primary-button">
+  <span>Create</span>
+</button>
+</div>
+<div *ngIf="showSpinner"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    "
+  >
+    <mat-spinner></mat-spinner>
+</div>
 <div
-        *ngFor="let test of tests"
-        style="margin: 2%; box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4)"
-        class="oferta">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ test.minimunscore }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ test.numQuestions }}
-            </p>
-            <br />
-          </mat-card-content>
-        </mat-card>
-      </div>
+  *ngFor="let test of tests"
+  style="margin: 1%; "
+  class="oferta"
+>
+  <mat-card>
+    <mat-card-header style="margin-bottom: 1%;">
+      <mat-card-title>{{ test.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Number of Questions: {{ test.numQuestions }}</p>
+      <p>Minimun Score: {{ test.minimunScore }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+</div>
+
+

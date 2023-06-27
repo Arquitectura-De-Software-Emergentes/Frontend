@@ -13,12 +13,16 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MatPseudoCheckboxModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { MatSelectModule } from '@angular/material/select';
+
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [SnackBarComponent],
   imports: [
@@ -42,6 +46,11 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
+    MatPseudoCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,MatRadioModule,
+    MatSelectModule,
   ],
 
   exports: [
@@ -64,7 +73,12 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     MatProgressSpinnerModule,
     MatTabsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPseudoCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,MatRadioModule,
+    MatSelectModule,
   ],
 })
 export class UiModule {}

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { TestResponse } from '../../models/test';
+import { AssessmentService } from '../../services/assessment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adm-tests',
@@ -6,22 +9,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./adm-tests.component.css']
 })
 export class AdmTestsComponent {
-  tests: Test[] = [];
-}
+  showSpinner: boolean=false
+  tests: TestResponse[] = [];
+  idRecruiter: number=1;
+  constructor(private assessmentService: AssessmentService, private router: Router){}
 
-interface Test {
-  numQuestions: string,
-  minimunscore: number,
-  questions: Question[]
-}
+  ngOnInit():void{
+    this.setAllTests()
+  }
 
-interface Question{
-  id:number,
-  statement: string,
-  options: Option[]
-}
+  setAllTests(): void{
+    this.showSpinner=true;
+    this.assessmentService.getTestsByRecruiter(this.idRecruiter).subscribe(
+      tests=>{this.tests=tests; this.showSpinner=false; console.log(tests)}
+    )
+  }
 
-interface Option{
-  id:number,
-  response: string
+  goCreate(): void{
+    this.router.navigate([`assessment/tests/create`])
+  }
 }
