@@ -5,6 +5,7 @@ import { AdmTestsComponent } from './pages/adm-tests/adm-tests.component';
 import { AssessmentStagesRecruiterComponent } from './pages/assessment-stages-recruiter/assessment-stages-recruiter.component';
 import { ScheduleInterviewRecruiterComponent } from './pages/schedule-interview-recruiter/schedule-interview-recruiter.component';
 import { FormTestComponent } from './pages/form-test/form-test.component';
+import { SendVideoPresentationComponent } from './pages/send-video-presentation/send-video-presentation.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'tests/create',
     component: FormTestComponent
+  },
+  {
+    path: 'send-video',
+    component: SendVideoPresentationComponent
   }
 ]
 

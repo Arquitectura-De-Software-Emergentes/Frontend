@@ -12,6 +12,7 @@ import { DialogScheduleInterviewComponent } from './components/dialog-schedule-i
 import { AdmTestsComponent } from './pages/adm-tests/adm-tests.component';
 import { FormTestComponent } from './pages/form-test/form-test.component';
 import { DialogOptionsComponent } from './components/dialog-options/dialog-options.component';
+import { SendVideoPresentationComponent } from './pages/send-video-presentation/send-video-presentation.component';
 @NgModule({
   declarations: [
     EvaluationsComponent,
@@ -24,6 +25,7 @@ import { DialogOptionsComponent } from './components/dialog-options/dialog-optio
     AdmTestsComponent,
     FormTestComponent,
     DialogOptionsComponent,
+    SendVideoPresentationComponent,
   ],
   imports: [CommonModule, UiModule, AssessmentRoutingModule],
 })
