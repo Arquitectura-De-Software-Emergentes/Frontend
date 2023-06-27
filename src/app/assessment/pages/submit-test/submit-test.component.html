@@ -1,0 +1,36 @@
+<div style="padding: 50px; padding-top: 25px">
+    <button
+      style="margin-bottom: 10px"
+      mat-icon-button
+      aria-label="Example icon button with a vertical three dot icon"
+      (click)="volver()"
+    >
+      <mat-icon style="font-weight: 900">keyboard_backspace</mat-icon>
+    </button>
+  
+    <mat-card class="example-card" >
+        <div *ngFor="let question of test.questions; let i = index">
+             <mat-card-header *ngIf="i==actualIndexQuestion">
+            <mat-card-title>Question 1: {{question.statement}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content *ngIf="i==actualIndexQuestion">
+
+            <button mat-button class="primary-button" *ngFor="let option of question.options" style="margin: 20px;" 
+            (click)="question.responseId=option.id; actualIndexQuestion=i+1;console()">{{option.response}}</button>
+          </mat-card-content>
+         
+        </div>
+        <mat-card-actions style="justify-content: right; margin: 10px">
+            <button
+              mat-button
+              
+              class="primary-button"
+              style="margin-left: 10px; float: right"
+            >
+              Send
+            </button>
+          </mat-card-actions>
+          
+    </mat-card> 
+   
+</div>

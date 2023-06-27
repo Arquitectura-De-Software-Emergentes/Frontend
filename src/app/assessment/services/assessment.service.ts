@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AssessmentService {
-  readonly apiUrl: string = 'http://ec2-3-95-18-5.compute-1.amazonaws.com:8080/api/v1/assessments'
+  readonly apiUrl: string = 'http://teacher-finder.up.railway.app/api/v1/assessments'
   constructor(private http:HttpClient) { }
 
   getTestsByRecruiter(idRecruiter:number):Observable<TestResponse[]>{
@@ -23,5 +23,10 @@ export class AssessmentService {
   addQuestionTest(idTest: number, question: QuestionRequest): Observable<string>{
     let url= this.apiUrl+`/tests/${idTest}/questions?testId=${idTest}`
     return this.http.post<string>(url, question);
+  }
+
+  getTestById(idTest: number){
+    let url= this.apiUrl+`/tests/${idTest}?testId=${idTest}`
+    return this.http.get<TestResponse>(url);
   }
 }

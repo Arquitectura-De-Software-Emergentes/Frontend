@@ -4,7 +4,7 @@
     title: string,
     numQuestions: number,
     minimunScore: number,
-    questions:QuestionRequest[]
+    questions:QuestionResponse[]
   }
 
 
@@ -24,4 +24,20 @@
     response: string,
     isCorrect: boolean
   }
+
+
+  export interface OptionResponse{
+    id: number,
+    response: string
+  }
+
+  export interface QuestionResponse{
+    id: number,
+    statement: string,
+    options: OptionResponse[];
+    responseId: number;
+    points: number
+  }
+
+
 
