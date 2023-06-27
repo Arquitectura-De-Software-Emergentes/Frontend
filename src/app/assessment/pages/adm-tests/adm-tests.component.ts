@@ -21,7 +21,7 @@ export class AdmTestsComponent {
   setAllTests(): void{
     this.showSpinner=true;
     this.assessmentService.getTestsByRecruiter(this.idRecruiter).subscribe(
-      tests=>{this.tests=tests; this.showSpinner=false; console.log(tests)}
+      tests=>{this.tests=tests; this.showSpinner=false}
     )
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OptionRequest } from '../../models/test';
 
 @Component({
@@ -7,12 +7,12 @@ import { OptionRequest } from '../../models/test';
   styleUrls: ['./dialog-options.component.css']
 })
 export class DialogOptionsComponent {
-  options: OptionRequest[]=[]
+  @Input() options:  OptionRequest[]=[]
   newOption: OptionRequest={
     response: '',
     isCorrect: false
   }
-
+  constructor(){}
   addOptionList(){
     let option: OptionRequest={
       response: this.newOption.response,

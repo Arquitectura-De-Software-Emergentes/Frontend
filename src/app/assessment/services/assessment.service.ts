@@ -15,9 +15,9 @@ export class AssessmentService {
     return this.http.get<TestResponse[]>(url);
   }
 
-  create(test: TestRequest): Observable<TestRequest>{
+  createTest(test: TestRequest): Observable<TestResponse>{
     let url= this.apiUrl+`/tests`
-    return this.http.post<TestRequest>(url, test);
+    return this.http.post<TestResponse>(url, test);
   }
 
   addQuestionTest(idTest: number, question: QuestionRequest): Observable<string>{

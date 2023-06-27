@@ -44,7 +44,6 @@
           <button
             mat-raised-button
             style="margin-bottom: 20px"
-            class="primary-button"
             (click)="addQuestionList()"
           >
             <span>Add Question</span>
@@ -53,7 +52,7 @@
       </div>
       <div
         style="display: flex; justify-content: center; align-items: center"
-        *ngFor="let question of questions"
+        *ngFor="let question of questions; let i = index"
       >
         <mat-card style="width: 50%; margin: 10px">
           <mat-card-title style="margin: 10px">{{
@@ -64,11 +63,11 @@
             >Points: {{ question.points }}</mat-card-subtitle
           >
           <div style="justify-content: center; align-items: center">
-            <div style="text-align: right; margin: 20px">
+            <div style="text-align: right; margin: 20px; margin-top: 0px !important">
               <button
                 mat-raised-button
                 class="primary-button"
-                (click)="dialogOptions()"
+                (click)="dialogOptions(i, question.options)"
               >
                 <span>Options</span>
               </button>
@@ -77,5 +76,15 @@
         </mat-card>
       </div>
     </mat-card-content>
+    <mat-card-actions style="justify-content: right; margin: 10px">
+      <button
+        mat-button
+        (click)="create()"
+        class="primary-button"
+        style="margin-left: 10px; float: right"
+      >
+        Save
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>

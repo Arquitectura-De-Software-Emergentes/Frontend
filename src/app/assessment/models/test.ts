@@ -3,7 +3,8 @@
     id: number,
     title: string,
     numQuestions: number,
-    minimunScore: number
+    minimunScore: number,
+    questions:QuestionRequest[]
   }
 
 
