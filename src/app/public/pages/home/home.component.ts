@@ -7,6 +7,7 @@ import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.com
 import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
 import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
 import { Router } from '@angular/router';
+import { VideoPresentationAnalysisService } from 'src/app/assessment/services/video-presentation-analysis.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +16,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar,
-    private router: Router) {}
+    private router: Router, private videoService: VideoPresentationAnalysisService) {}
   showSpinner: boolean=false;
   idApplicant: number=7;
-  isApplicant: boolean=false;
+  isApplicant: boolean=true;
   public availability = Availability;
   value="";
   name="Toshiro";
@@ -48,11 +49,17 @@ export class HomeComponent {
       type: Type.PART_TIME
     }
   }
-
+  file?: File;
   jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
     this.setAllJobOffer()
+  }
+
+  transcription(event:any):void{
+    this.file=event.target.files[0]
+    this.videoService.extractText(this.file!).subscribe(resp=>console.log(resp)
+    )
   }
 
   setAllJobOffer(): void{

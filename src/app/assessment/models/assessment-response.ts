@@ -21,3 +21,7 @@ export interface AssessmentStage {
 export interface Activity {
   name: string;
 }
+
+export interface VideoAnalisisResponse{
+  text: string
+}
