@@ -14,10 +14,11 @@
     align-items: center;
 }
 .personalinfo button{
-    width: 7.35rem;
-    height: 3.125rem;
+    width: 5.95rem;
+    height: 2.5rem;
     border-radius: 5rem;
-    font-size: 1.15rem;
+    font-size: 0.875rem;
+    line-height: 0.9rem;
     margin-top: 5rem;
     margin-left: 27rem;
     background-color: #171740 !important;
@@ -25,17 +26,20 @@
     font-weight: 500 !important;
 }
 .personalinfo h2{
+    font-family: 'Work Sans';
     font-weight: 700;
     font-size: 1.5rem;
-    line-height: 1.75rem;
-    width: 29.688rem;
-    margin-top: 2rem;
+    line-height: 1.55rem;
+    width: 13.313rem;
+    margin-top: 1.05rem;
     margin-left: 9.55rem;
-    height: 5rem;
+    height: 1.25rem;
 }
 .resume{
-    font-size: 1.75rem;
-    line-height: 2.15rem;
+    font-family: 'Work Sans';
+    font-size: 1.25rem;
+    line-height: 1.275rem;
+    width: 29.25rem;
 }
 .content{
     position: relative;
@@ -58,17 +62,24 @@
     height: 4rem;
 }
 .locate h3{
-    font-size: 1.75rem;
-    line-height: 3rem;
+    font-size: 1.5rem;
+    line-height: 1.55rem;
+    font-family: 'Work Sans';
 }
 .available-recruiter{
     align-items: center;
 }
 .available-recruiter h3{
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    line-height: 1.55rem;
+    font-family: 'Mulish';
 }
-.mat-card{
+mat-card{
     display: flex;
     gap: 0.50rem;
-    box-shadow: .5rem .75rem #000050;
+}
+mat-card-footer h2{
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 0.85rem;
 }
