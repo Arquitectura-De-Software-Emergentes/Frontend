@@ -13,6 +13,7 @@ import { AdmTestsComponent } from './pages/adm-tests/adm-tests.component';
 import { FormTestComponent } from './pages/form-test/form-test.component';
 import { DialogOptionsComponent } from './components/dialog-options/dialog-options.component';
 import { SendVideoPresentationComponent } from './pages/send-video-presentation/send-video-presentation.component';
+import { SubmitTestComponent } from './pages/submit-test/submit-test.component';
 @NgModule({
   declarations: [
     EvaluationsComponent,
@@ -26,6 +27,7 @@ import { SendVideoPresentationComponent } from './pages/send-video-presentation/
     FormTestComponent,
     DialogOptionsComponent,
     SendVideoPresentationComponent,
+    SubmitTestComponent,
   ],
   imports: [CommonModule, UiModule, AssessmentRoutingModule],
 })

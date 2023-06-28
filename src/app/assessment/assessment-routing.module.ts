@@ -6,6 +6,8 @@ import { AssessmentStagesRecruiterComponent } from './pages/assessment-stages-re
 import { ScheduleInterviewRecruiterComponent } from './pages/schedule-interview-recruiter/schedule-interview-recruiter.component';
 import { FormTestComponent } from './pages/form-test/form-test.component';
 import { SendVideoPresentationComponent } from './pages/send-video-presentation/send-video-presentation.component';
+import { Subscriber } from 'rxjs';
+import { SubmitTestComponent } from './pages/submit-test/submit-test.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,10 @@ const routes: Routes = [
   {
     path: 'send-video',
     component: SendVideoPresentationComponent
+  },
+  {
+    path: 'submit-test',
+    component: SubmitTestComponent
   }
 ]
 
