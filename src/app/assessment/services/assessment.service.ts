@@ -31,7 +31,22 @@ export class AssessmentService {
   }
 
   submitTest(idJoboffer: number, idApplicant: number, test: TestResponse){
-    let url= this.apiUrl+`/${idJoboffer}/test/applicant/${idApplicant}/submit?jobOfferId=${idJoboffer}&applicantId=${idApplicant}`
-    return this.http.post<number>(url,test.questions);
+    let url= this.apiUrl+`/${idJoboffer}/tests/applicant/${idApplicant}/submit?jobOfferId=${idJoboffer}&applicantId=${idApplicant}`
+    return this.http.post<TestResult>(url,test.questions);
   }
+
+  getTestByJobOffer(idJobOffer: number){
+    let url= this.apiUrl+`/${idJobOffer}/tests?jobOfferId=${idJobOffer}`
+    return this.http.get<any>(url);
+  }
+
+  addTestToJobOffer(idTest: number, idAssessment: number){
+    let url= this.apiUrl+`/${idAssessment}/test/${idTest}?assessmentId=${idAssessment}&testId=${idTest}`
+    return this.http.put<string>(url, null);
+  }
+}
+
+
+export interface TestResult{
+  hasPassed: boolean
 }
