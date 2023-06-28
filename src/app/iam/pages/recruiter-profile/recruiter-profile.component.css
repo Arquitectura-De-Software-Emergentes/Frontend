@@ -8,9 +8,9 @@
     height: 12.5rem;
 }
 .personalinfo{
-    width: 34.375rem;
-    height: 28.625rem;
-    margin-left: 9rem;
+    width: 33.813rem;
+    height: 32.938rem;
+    margin-right: 2.25rem;
     align-items: center;
 }
 .personalinfo button{
@@ -68,6 +68,8 @@
 }
 .available-recruiter{
     align-items: center;
+    width: 15.313rem;
+    height: 4.375rem;
 }
 .available-recruiter h3{
     font-size: 1.5rem;

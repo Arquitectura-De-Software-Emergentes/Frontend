@@ -3,7 +3,7 @@
         <div class="profilepic"></div>
         <div class="locate">
             <mat-icon>location_on</mat-icon>
-            <h3>address</h3>
+            <h3 [(ngModel)]="inst.address"></h3>
         </div>
         <div class="available-recruiter">
             <h3>Recruiters:</h3>
@@ -18,16 +18,14 @@
     <div class="personalinfo">
         <mat-card>
             <mat-card-header>
-                <h2>name</h2>
+                <h2 [(ngModel)]="inst.name"></h2>
             </mat-card-header>
             <mat-card-content>
-                <p class="resume">
-                    resume
-                </p>
+                <p [(ngModel)]="inst.description" class="resume"></p>
             </mat-card-content>
             <mat-card-footer>
-                <h2>phoneNumber</h2>
-                <a href="urlWebPage"><h2>Our web</h2></a>
+                <h2 [(ngModel)]="inst.phoneNumber"></h2>
+                <a href="inst.urlWebPage"><h2>Our web</h2></a>
             </mat-card-footer>
         </mat-card>
         <button mat-raised-button color="accent"><span>Edit info</span></button>
