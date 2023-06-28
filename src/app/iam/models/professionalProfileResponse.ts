@@ -1,5 +1,11 @@
 import { JobExperienceInformation } from "./jobExperienceInformation";
 
+export interface ApplicantProfile{
+  applicantProfileId:number,
+  academicInformation: AcademicInformation,
+  contactInformation: ContactInformation,
+  personalInformation: PersonalInformation
+}
 export interface ProfessionalProfileResponse {
   academicInformation: AcademicInformation;
   contactInformation: ContactInformation;

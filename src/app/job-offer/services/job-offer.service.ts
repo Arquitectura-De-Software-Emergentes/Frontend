@@ -8,7 +8,7 @@ import { ErrorResponse } from '../models/error-response';
   providedIn: 'root'
 })
 export class JobOfferService {
-  readonly apiUrl: string = 'http://ec2-3-95-18-5.compute-1.amazonaws.com:8080/api/v1/job-offers'
+  readonly apiUrl: string = 'https://teacher-finder.up.railway.app/api/v1/job-offers'
   constructor(private http:HttpClient) { }
 
   getJobOffers():Observable<JobOffer[]>{
@@ -20,8 +20,8 @@ export class JobOfferService {
     return this.http.get<JobOffer[]>(url);
   }
   
-  applyToJobOffer(jobOfferId:number,applicantId:number):Observable<string|ErrorResponse>{
+  /*applyToJobOffer(jobOfferId:number,applicantId:number):Observable<string|ErrorResponse>{
     let url= this.apiUrl+`/${jobOfferId}/apply/${applicantId}`
     return this.http.post<string|ErrorResponse>(url,null);
-  }
+  }*/
 }

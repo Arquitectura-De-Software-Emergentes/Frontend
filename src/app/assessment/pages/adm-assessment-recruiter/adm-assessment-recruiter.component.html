@@ -1,22 +1,25 @@
 <div style="padding: 25px">
   <h1 style="width: 100%; text-align: center; font-weight: 500;">Evaluation Processes</h1>
-    <div *ngFor="let assessment of assessments" style="padding: 10px;"> 
+    <div *ngFor="let jobOffer of jobOffers" style="padding: 10px;"> 
     <mat-accordion>
-        <mat-expansion-panel hideToggle>
+        <mat-expansion-panel hideToggle [expanded]="true">
           <mat-expansion-panel-header style="width: 100%; padding: 10px; display: contents; ">
             <mat-panel-title style=" display: contents;
             width: 100%;">
               <div style="width: 100%; padding: 20px;">
                 <div class="row" style="padding-top: 10px; padding-bottom: 0px">
-                  {{assessment.title}}
+                  {{jobOffer.title}}
                   <p style="padding-top: 10px; padding-bottom: 0px">
-                    {{assessment.recruiterInstitution}}
+                    {{jobOffer.description}}
                   </p>
                 </div>
                 <div class="row" style="display: flex; align-items: center; padding-top: 10px;">
                   <mat-icon class="mat-icon-position" style="padding-right: 8px"
-                    >date_range</mat-icon>
-                  {{assessment.initialDate| date :'short'}}
+                    >date_range</mat-icon> Start Date:
+                  {{jobOffer.initialDate| date :'short'}}
+                  <mat-icon class="mat-icon-position" style="padding-right: 8px; padding-left: 20px;"
+                    >date_range</mat-icon> Finish Date:
+                  {{jobOffer.endDate| date :'short'}}
                 </div>
               </div>
               <div style="display: flex; justify-content: end;padding-right: 10px;
@@ -25,21 +28,16 @@
                 style="background-color: #11b774;
                   color: white !important;
                   font-weight: 500;"
-                [selected]="assessment.avalability==availability.AVAILABLE"
+                [selected]="jobOffer.availability==availability.AVAILABLE"
                 selectable="false"
-                >{{assessment.avalability}}</mat-chip-option
+                >{{jobOffer.availability}}</mat-chip-option
               >
               </div>
             </mat-panel-title>
+            
           </mat-expansion-panel-header>
-          <div>
-            <p style="font-weight: 500;">Etapas: </p>
-            <li *ngFor="let stage of assessment.assessmentStages">
-              {{stage.title}}
-            </li>
-          </div>
           <div style="text-align: right; width: 100%; padding-top: 20px;">
-            <button mat-flat-button class="primary-button" (click)="verDetalles(assessment.id)">View Stages</button>
+            <button mat-flat-button class="primary-button" (click)="verApplications(jobOffer.id)">View Applications</button>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

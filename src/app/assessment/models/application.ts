@@ -1,10 +1,4 @@
-export interface Application{
-    id:ApplicationId
-    applicantId:ApplicantId,
-    jodOfferId:JobOfferId,
-    status:string,
-    applicantProfile:ApplicantProfile,
-}
+
 interface ApplicationId{
     applicationId:number
 }

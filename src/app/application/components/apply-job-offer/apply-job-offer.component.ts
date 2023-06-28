@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogComponentComponent } from 'src/app/UI/components/dialog-component/dialog-component.component';
 import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.component';
 import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
-import { JobOfferService } from 'src/app/job-offer/services/job-offer.service';
+import { ApplicationService } from '../../services/application.service';
 @Component({
   selector: 'app-apply-job-offer',
   templateUrl: './apply-job-offer.component.html',
@@ -14,7 +14,7 @@ export class ApplyJobOfferComponent {
   @Input() idApplicant!: number;
   @Input() jobOffer!: JobOffer;
   
- constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar){}
+ constructor(private dialog: MatDialog,private applicationService:ApplicationService,private _snackBar: MatSnackBar){}
 
   apply():void{
     let dialogRef = this.dialog.open(DialogComponentComponent, {
@@ -26,7 +26,8 @@ export class ApplyJobOfferComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        this.jobOfferService.applyToJobOffer(this.jobOffer.id,this.idApplicant).subscribe({
+        this.applicationService.applyToJobOffer(this.jobOffer.id,this.idApplicant).subscribe(
+          {
           error:(error)=>{
             if(error.error.text){
               this._snackBar.openFromComponent(SnackBarComponent, {

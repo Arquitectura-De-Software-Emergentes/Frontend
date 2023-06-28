@@ -14,7 +14,7 @@ export class SendVideoPresentationComponent {
   analisis: string=''
   file?: File;
   volver(){
-    this.router.navigate([`assessment`])
+    this.router.navigate([`assessment/adm-applications`])
   }
 
   transcription(event:any):void{

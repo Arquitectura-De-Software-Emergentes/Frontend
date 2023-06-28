@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { QuestionRequest, TestRequest, TestResponse } from '../models/test';
+import { QuestionRequest, TestRequest, TestResponse, TestResult } from '../models/test';
 import { Observable } from 'rxjs';
+import { AssessmentDetails } from '../models/assessmentDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -44,9 +45,11 @@ export class AssessmentService {
     let url= this.apiUrl+`/${idAssessment}/test/${idTest}?assessmentId=${idAssessment}&testId=${idTest}`
     return this.http.put<string>(url, null);
   }
+
+  getAssessmentByIdJobOffer(idJobOffer:number){
+    let url= this.apiUrl+`/${idJobOffer}?jobOfferId=${idJobOffer}`
+    return this.http.get<AssessmentDetails>(url);
+  }
 }
 
 
-export interface TestResult{
-  hasPassed: boolean
-}

@@ -13,7 +13,8 @@ import { CVResponse } from '../../models/cvResponse';
   styleUrls: ['./professional-profile-applicant.component.css'],
 })
 export class ProfessionalProfileApplicantComponent implements OnInit{
-  loading: boolean = false
+  loading: boolean = false;
+  applicantId: number=1;
   cv: CVResponse ={
     cv: ''
   }
@@ -49,7 +50,7 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
 
   setProfile(){
     this.loading=true
-    this.professionalProfileService.getProfile(8)
+    this.professionalProfileService.getProfile(this.applicantId)
       .subscribe({
         next: profile => {
           this.loading=false;
@@ -59,7 +60,7 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
   }
 
   setCV(){
-    this.professionalProfileService.getCV(8)
+    this.professionalProfileService.getCV(this.applicantId)
       .subscribe({
         next: cv => {
           this.cv=cv;
@@ -68,7 +69,7 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
   }
 
   saveCV(){
-    this.professionalProfileService.updateCV(this.cv,8)
+    this.professionalProfileService.updateCV(this.cv,this.applicantId)
     .subscribe({
       next: ()=> {
           this.editCV=false
@@ -78,7 +79,7 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
   }
   updateProfile(){
     this.loading=true
-    this.professionalProfileService.updateProfile(this.profileInformation,8)
+    this.professionalProfileService.updateProfile(this.profileInformation,this.applicantId)
       .subscribe({
         next: profile => {
           this.loading=false
@@ -102,7 +103,7 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
       if(result){
         let aux: JobExperienceInformation ={
         ...result,
-        applicantProfileId: 8
+        applicantProfileId: this.applicantId
       }
       this.addExperience(aux)
       }

@@ -3,6 +3,7 @@ import { AssessmentService } from '../../services/assessment.service';
 import { QuestionResponse, TestResponse } from '../../models/test';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-submit-test',
@@ -10,7 +11,7 @@ import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.com
   styleUrls: ['./submit-test.component.css']
 })
 export class SubmitTestComponent {
-  idtest: number=18;
+  idtest: number=0;
   idJobOffer: number=1;
   idApplicant: number=1;
   actualIndexQuestion: number=0;
@@ -34,8 +35,10 @@ export class SubmitTestComponent {
     responseId: 0,
     points: 0
   }
-  constructor(private assessmentService: AssessmentService, private _snackBar: MatSnackBar){}
+  constructor(private assessmentService: AssessmentService, private _snackBar: MatSnackBar, 
+    private activatedRoute: ActivatedRoute, private router: Router){}
   ngOnInit(){
+    this.idtest = +this.activatedRoute.snapshot.paramMap.get('idTest')!;
     this.setTest()
     this.assessmentService.getTestByJobOffer(this.idJobOffer).subscribe(
       response=>{console.log(response)}
@@ -47,9 +50,11 @@ export class SubmitTestComponent {
       response=>{console.log(response); this.test=response;this.showSpinner=false} 
     )
   }
+  
   volver(){
-
+    this.router.navigate([`assessment/adm-applications`])
   }
+
   send(){
     this.assessmentService.submitTest(this.idJobOffer,this.idApplicant,this.test).subscribe({
       next: r=>{this.resultado=r.hasPassed; this.showResult=true;
