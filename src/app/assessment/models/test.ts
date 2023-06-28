@@ -39,5 +39,8 @@
     points: number
   }
 
+  export interface TestResult{
+    hasPassed: boolean
+  }
 
 

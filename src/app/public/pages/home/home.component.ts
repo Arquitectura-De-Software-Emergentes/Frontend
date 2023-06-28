@@ -18,7 +18,7 @@ export class HomeComponent {
   constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar,
     private router: Router, private videoService: VideoPresentationAnalysisService) {}
   showSpinner: boolean=false;
-  idApplicant: number=7;
+  idApplicant: number=1;
   isApplicant: boolean=true;
   public availability = Availability;
   value="";
@@ -83,7 +83,7 @@ export class HomeComponent {
     }
   }
 
-  apply():void{
+  /*apply():void{
     let dialogRef = this.dialog.open(DialogComponentComponent, {
       width: '550px',
       data: {
@@ -111,7 +111,7 @@ export class HomeComponent {
         })
       }
     })
-  }
+  }*/
 
   goEditJobOffer(){
     this.router.navigate([`job-offer/create`])
