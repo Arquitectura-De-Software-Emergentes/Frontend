@@ -1,9 +1,9 @@
 <div class="content">
     <div class="social">
-        <div class="profilepic"><img src="inst.image" alt=""></div>
+        <div class="profilepic"><img src="" alt=""></div>
         <div class="locate">
             <mat-icon>location_on</mat-icon>
-            <h3 [(ngModel)]="inst.address">Lima, Peru</h3>
+            <h3>{{inst.address}}</h3>
         </div>
         <div class="available-recruiter">
             <h3>Recruiters:</h3>
@@ -18,15 +18,15 @@
     <div class="personalinfo">
         <mat-card>
             <mat-card-header>
-                <h2 [(ngModel)]="inst.name">IEP Santa Rosa</h2>
+                <h2>{{inst.name}}</h2>
             </mat-card-header>
             <mat-card-content>
-                <p [(ngModel)]="inst.description" class="resume">
-                    We have been training outstanding professionals for more than 20 years and have been the benchmark school in the region since 1999 and we have the best athletes and mathematical champions in the field and the best teachers, all of them with great experience and national and international recognition.
+                <p class="resume">
+                    {{inst.description}}  
                 </p>
             </mat-card-content>
             <mat-card-footer>
-                <h2 [(ngModel)]="inst.phoneNumber">912657843</h2>
+                <h2>{{inst.phoneNumber}}</h2>
                 <a href=""><h2>Our web</h2></a>
             </mat-card-footer>
         </mat-card>
