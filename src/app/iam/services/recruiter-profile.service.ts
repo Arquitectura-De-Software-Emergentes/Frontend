@@ -8,11 +8,11 @@ import { InstitutionalProfileResponse } from '../models/recruiterprofileResponse
 })
 export class RecruiterProfileService {
 
-  readonly apiUrl: string = 'http://ec2-3-95-18-5.compute-1.amazonaws.com:8080/api/v1/' + 'recruiters/';
+  readonly apiUrl: string = 'https://teacher-finder.up.railway.app/api/v1/recruiters/%7BrecruiterId%7D/profiles?recruiterId=11';
   constructor(private http: HttpClient) {}
 
   getProfile(id:number):Observable<InstitutionalProfileResponse>{
-    let url=this.apiUrl+`${id}/profiles`
+    let url=this.apiUrl
     return this.http.get<InstitutionalProfileResponse>(url);
   }
 }
