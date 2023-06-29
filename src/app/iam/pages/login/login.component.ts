@@ -20,8 +20,8 @@ export class LoginComponent {
     }
     this.authService.login(user).subscribe(respo=>{
       this.authService.setUser(respo);
-        if(respo.user.role=='RECRUITER') this.router.navigate([`iam/recruiter-profile`])
-        if(respo.user.role=='APPLICANT')this.router.navigate([`iam/professional-profile`])
+        if(respo.user.role=='RECRUITER') this.router.navigate([`home`])
+        if(respo.user.role=='APPLICANT')this.router.navigate([`home`])
     })
   }
 

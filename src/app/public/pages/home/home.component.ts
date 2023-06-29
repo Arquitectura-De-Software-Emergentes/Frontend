@@ -97,7 +97,7 @@ export class HomeComponent {
   }
 
   goEditJobOffer(){
-    this.router.navigate([`job-offer/create`])
+    this.router.navigate([`job-offer/edit`])
   }
 
   goToCreate(){
