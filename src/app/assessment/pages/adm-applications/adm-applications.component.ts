@@ -48,7 +48,7 @@ export class AdmApplicationsComponent {
   sendVideoPresentation(idJobOffer: number) {
     this.assessmentService.getAssessmentByIdJobOffer(idJobOffer).subscribe((resp) => {
       console.log(resp);
-      this.router.navigate([`assessment/send-video`, { idAssessment: (resp as AssessmentDetails).assessmentId }]);
+      this.router.navigate([`assessment/send-video`, { idJobOffer: (resp as AssessmentDetails).jobOfferId }]);
     });
   }
 }

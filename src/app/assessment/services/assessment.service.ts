@@ -50,6 +50,17 @@ export class AssessmentService {
     let url= this.apiUrl+`/${idJobOffer}?jobOfferId=${idJobOffer}`
     return this.http.get<AssessmentDetails>(url);
   }
+
+  postVideoAssessment(feedback: string, idJobOffer: number){
+    let aux: VideoPresentationRequest={feedback: feedback}
+    let url= this.apiUrl+`${idJobOffer}/video-presentations?jobOfferId=${idJobOffer}`
+    return this.http.post<string>(url, aux);
+  }
+}
+
+
+export interface VideoPresentationRequest{
+  feedback:string
 }
 
 

@@ -1,6 +1,6 @@
 <div style="padding: 25px">
     <h1 style="width: 100%; text-align: center; font-weight: 500;">Job Offers Applications</h1>
-    <div *ngIf="showSpinner"
+    <div 
     style="
       display: flex;
       justify-content: center;
@@ -40,12 +40,13 @@
           </mat-card>
       </div>
 
-      <div *ngIf="applications.length==0" style="text-align: center; display: flex;
+   
+</div>   
+<div *ngIf="applications.length==0 && showSpinner==false" style="text-align: center; display: flex;
       justify-content: center;
       align-items: center;
       height: 50vh;">
         You have no pending evaluations
       </div>
-</div>
 </div>
   

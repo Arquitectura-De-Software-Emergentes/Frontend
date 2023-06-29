@@ -15,14 +15,14 @@
        <mat-card *ngFor="let applicant of appications" style="margin: 10px;">
         <mat-card-title style="padding: 10px;">
 
-        {{applicant.status}}
+        {{applicant.applicantProfile.personalInformation.name + " " + applicant.applicantProfile.personalInformation.lastname}}
         </mat-card-title>
+
+        <mat-card-actions align="end" style="margin: 10px;">
+          <button mat-button class="primary-button" style="margin-left: 10px;">Result Test</button>
+        </mat-card-actions>
        </mat-card>
       </mat-card-content>
-      <mat-card-actions align="end" style="margin: 10px;">
-        <button mat-button (click)="volver()">Cancelar</button>
-        <button mat-button class="primary-button" style="margin-left: 10px;">Save</button>
-      </mat-card-actions>
     </mat-card>
   </div>
   
