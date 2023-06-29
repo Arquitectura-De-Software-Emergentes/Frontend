@@ -49,6 +49,18 @@
           </mat-card-content>
         </mat-card>
       </div>
+
+      <div *ngIf="showSpinner"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    "
+  >
+    <mat-spinner></mat-spinner>
+</div>
+
       </div>
      
     </div>
@@ -161,7 +173,7 @@
       
       <div style="text-align: center; padding: 20px;">
         <div *ngIf="isApplicant">
-          <app-apply-job-offer [idApplicant]="this.idApplicant" [jobOffer]="jobOfferExpanded"></app-apply-job-offer>
+          <app-apply-job-offer [idApplicant]="this.idUser" [jobOffer]="jobOfferExpanded"></app-apply-job-offer>
         </div>
         <button mat-raised-button 
           class="primary-button"

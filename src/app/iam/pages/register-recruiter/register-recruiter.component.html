@@ -1,0 +1,57 @@
+<body>
+    <mat-card class="center-card" style="width: 30%;">
+      <mat-card-content>
+        <div class="image-container">
+          <img [src]="
+          'https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/1136937581CommercialManager.jpg'"
+          alt="Imagen" class="circular-image">
+        </div>
+        <form [formGroup]="form" style="justify-content: center">
+          <h1 style="text-align: center; font-weight: 500">Recruiter</h1>
+          <p style="text-align: center; padding: 10px">
+            Register to find the perfect employee
+          </p>
+          <p style="text-align: center">
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Username" formControlName="username" />
+              <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+          </p>
+  
+          <p style="text-align: center">
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                formControlName="password"
+              />
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+          </p>
+  
+          <p style="text-align: center">
+            <mat-form-field appearance="fill">
+              <mat-label>Position</mat-label>
+              <input matInput placeholder="Position" formControlName="position" />
+              <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+          </p>
+  
+          <div class="button" style="text-align: center">
+            <button
+              type="button"
+              class="primary-button"
+              mat-button
+              (click)="register()"
+            >
+              Register
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </body>
+  

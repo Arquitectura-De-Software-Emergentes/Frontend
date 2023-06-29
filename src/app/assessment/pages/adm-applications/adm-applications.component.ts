@@ -6,6 +6,7 @@ import {
 } from '../../services/assessment.service';
 import { Router } from '@angular/router';
 import { AssessmentDetails } from '../../models/assessmentDetails';
+import { AuthService } from 'src/app/iam/services/auth.service';
 
 @Component({
   selector: 'app-adm-applications',
@@ -14,38 +15,38 @@ import { AssessmentDetails } from '../../models/assessmentDetails';
 })
 export class AdmApplicationsComponent {
   applications: Application[] = [];
+  idApplicant: number =0;
   showSpinner: boolean=false;
   constructor(
     private applicationService: ApplicationService,
     private assessmentService: AssessmentService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
-    this.getAllApplications()
+    this.idApplicant=this.authService.idUser;
+    this.getAllApplications();
   }
 
   getAllApplications(){
     this.showSpinner=true
     this.applicationService
-      .getApplicationsByIdApplicant(1)
+      .getApplicationsByIdApplicant(this.idApplicant)
       .subscribe((resp) => {this.applications = resp; this.showSpinner=false});
   }
 
-  startTest() {
+  startTest(idJobOffer: number) {
     let TestId: number = 0;
-    this.assessmentService.getAssessmentByIdJobOffer(1).subscribe((resp) => {
+    this.assessmentService.getAssessmentByIdJobOffer(idJobOffer).subscribe((resp) => {
       console.log(resp);
       TestId = (resp as AssessmentDetails).testId;
       this.router.navigate([`assessment/submit-test`, { idTest: TestId }]);
     });
-    /*this.router.navigate([`/recruiter/view-assesment-process`,
-    { idTest: id },
-   ])*/
   }
 
-  sendVideoPresentation() {
-    this.assessmentService.getAssessmentByIdJobOffer(1).subscribe((resp) => {
+  sendVideoPresentation(idJobOffer: number) {
+    this.assessmentService.getAssessmentByIdJobOffer(idJobOffer).subscribe((resp) => {
       console.log(resp);
       this.router.navigate([`assessment/send-video`, { idAssessment: (resp as AssessmentDetails).assessmentId }]);
     });

@@ -31,7 +31,12 @@
     </mat-card-content>
   </mat-card>
 </div>
-
+<div *ngIf="tests.length==0" style="text-align: center; display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;">
+        You have no tests created
+      </div>
 </div>
 
 
