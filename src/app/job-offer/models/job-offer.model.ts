@@ -7,8 +7,8 @@ export interface JobOffer {
   recruiterId: number;
   title: string;
   description: string;
-  initialDate: Date;
-  endDate: Date;
+  initialDate: Date|string;
+  endDate: Date|string;
   salary: Salary;
   maxApplications: number;
   numberApplications: number;

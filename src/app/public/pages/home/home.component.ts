@@ -16,6 +16,7 @@ import { AuthService } from 'src/app/iam/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  
   constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar,
     private authService: AuthService,
     private router: Router, private videoService: VideoPresentationAnalysisService) {}
@@ -55,9 +56,13 @@ export class HomeComponent {
   jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
+    console.log("usuario",this.authService.infoUser)
     this.idUser=this.authService.idUser;
     if(this.authService.infoUser.user.role=='APPLICANT')this.isApplicant=true;
-    else this.isApplicant=false;
+    else {
+      localStorage.setItem("recruiterId",this.authService.infoUser.user.userId.toString())
+      this.isApplicant=false;
+    }
     this.setAllJobOffer()
   }
 
@@ -78,6 +83,7 @@ export class HomeComponent {
         }
       );
     }else{
+      console.log("IDESITO2",this.idUser)
       this.jobOfferService.getJobOffersByIdRecruiter(this.idUser).subscribe(
         data=>{
           this.jobOffers=data;
