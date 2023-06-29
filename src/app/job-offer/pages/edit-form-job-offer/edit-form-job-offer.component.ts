@@ -56,7 +56,8 @@ cancel():void{
 }
 
 save():void{
-  
+  if(this.jobOfferToEdit.availability=='AVAILABLE') this.jobOfferService.editEnabledJobOffer(this.jobOfferToEdit).subscribe();
+  else this.jobOfferService.editDisabledJobOffer(this.jobOfferToEdit).subscribe();
 }
 
 }
