@@ -105,6 +105,7 @@ export class HomeComponent {
   }
 
   goEditJobOffer(){
+    localStorage.setItem("jobOfferId",this.jobOfferExpanded.id.toString())
     this.router.navigate([`job-offer/edit`])
   }
 
