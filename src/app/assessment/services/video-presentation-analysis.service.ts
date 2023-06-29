@@ -8,14 +8,14 @@ import { Injectable } from '@angular/core';
 export class VideoPresentationAnalysisService {
   apiURL: string = 'https://api.openai.com/v1/audio/transcriptions';
 
-  //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
+  //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
   constructor(private http: HttpClient) {}
   title = 'api-angular';
 
   extractText(file: File) {
     const headers = new HttpHeaders().set(
       'Authorization',
-      'Bearer ' + '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'
+      'Bearer ' + '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'
     );
     const formData = new FormData();
     formData.append('file', file);
@@ -32,7 +32,7 @@ export class VideoPresentationAnalysisService {
     let apiChat='https://api.openai.com/v1/chat/completions'
     const headers = new HttpHeaders().set(
       'Authorization',
-      'Bearer ' + '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'
+      'Bearer ' + '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'
     );
     const formData = new FormData();
     let mess: MessageRequest={
