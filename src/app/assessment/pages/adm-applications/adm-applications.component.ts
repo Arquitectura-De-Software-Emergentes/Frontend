@@ -39,7 +39,6 @@ export class AdmApplicationsComponent {
   startTest(idJobOffer: number) {
     let TestId: number = 0;
     this.assessmentService.getAssessmentByIdJobOffer(idJobOffer).subscribe((resp) => {
-      console.log(resp);
       TestId = (resp as AssessmentDetails).testId;
       this.router.navigate([`assessment/submit-test`, { idTest: TestId, idJobOffer: idJobOffer }]);
     });
@@ -47,7 +46,6 @@ export class AdmApplicationsComponent {
 
   sendVideoPresentation(idJobOffer: number) {
     this.assessmentService.getAssessmentByIdJobOffer(idJobOffer).subscribe((resp) => {
-      console.log(resp);
       this.router.navigate([`assessment/send-video`, { idJobOffer: (resp as AssessmentDetails).jobOfferId }]);
     });
   }

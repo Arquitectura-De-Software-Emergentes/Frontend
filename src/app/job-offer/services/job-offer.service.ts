@@ -18,7 +18,6 @@ export class JobOfferService {
   }
 
   getJobOffersByIdRecruiter(id: number):Observable<JobOffer[]> {
-    console.log("IDESITO",id)
     let url= this.apiUrl+`/recruiter/${id}`
     return this.http.get<JobOffer[]>(url);
   }
@@ -29,7 +28,6 @@ export class JobOfferService {
   }
 
   createJobOffer(jobOffer:JobOffer):Observable<JobOffer>{
-    console.log("obtuveEsto",jobOffer)
     return this.http.post<JobOffer>(this.apiUrl,jobOffer);
   }
 

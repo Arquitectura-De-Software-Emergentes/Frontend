@@ -57,7 +57,6 @@ export class HomeComponent {
   jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
-    console.log("usuario",this.authService.infoUser)
     this.idUser=this.authService.idUser;
     if(this.authService.infoUser.user.role=='APPLICANT'){
       localStorage.setItem("applicantId",this.authService.infoUser.user.userId.toString())
@@ -91,7 +90,6 @@ export class HomeComponent {
         }
       );
     }else{
-      console.log("IDESITO2",this.idUser)
       this.jobOfferService.getJobOffersByIdRecruiter(this.idUser).subscribe(
         data=>{
           this.jobOffers=data;

@@ -37,7 +37,6 @@ export class RegisterApplicantComponent {
     }
     this.authService.registerApplicant(aux).subscribe(
       resp=>{
-        console.log(resp);
         this.authService.login(user).subscribe(r=>{
           this.authService.setUser(r);
             if(r.user.role=='APPLICANT')this.router.navigate([`iam/professional-profile`])

@@ -29,7 +29,6 @@ export class AssessmentApplicationsComponent implements OnInit {
     this.applicationService
       .getApplicationsByIdJobOffer(this.idJobOffer)
       .subscribe((res) => {
-        console.log(res);
         this.appications = res;
       });
   }
