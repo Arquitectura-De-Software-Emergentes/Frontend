@@ -40,8 +40,9 @@ export class SendVideoPresentationComponent {
   }
 
   send():void{
-    this.assessmentService.postVideoAssessment(this.analisis,this.idJobOffer).subscribe(
-respo=>console.log(respo)
-    )
+    /*this.assessmentService.postVideoAssessment(this.analisis,this.idJobOffer).subscribe(
+      respo=>this.volver()
+    )*/
+    this.volver()
   }
 }
