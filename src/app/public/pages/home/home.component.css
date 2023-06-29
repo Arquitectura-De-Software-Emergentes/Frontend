@@ -60,6 +60,20 @@
     }
 }
 
+.image-container2 {
+    
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* Ajusta el ancho según tus necesidades */
+    height: 150px; /* Ajusta la altura según tus necesidades */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white; /* Color y grosor del marco */
+    z-index: 9999; 
+  
+  }
 
 .example-form-field{
     margin: 2%;
@@ -67,7 +81,7 @@
 }
 
 .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2vxPkuzbr1hLMDYq8GQg2cJ7EuFax8-Zwg&usqp=CAU');
     background-size: cover; 
 }
 

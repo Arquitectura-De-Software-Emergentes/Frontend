@@ -89,7 +89,7 @@
         <mat-card class="example-card" style="align-items: end; width: 100%;">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Erick Cruz</mat-card-title>
+            <mat-card-title>{{username}}</mat-card-title>
           </mat-card-header>
           <mat-card-content style="margin: 0px; width: 95%;display: flex; justify-content: end">  
             <button mat-raised-button class="primary-button" style="margin: 1%">
@@ -141,7 +141,7 @@
       </div>
       <div class="padding-offer">
         Number of Applications: <a style="font-weight: 400;font-size:medium;">
-          {{jobOfferExpanded.maxApplications}}
+          {{jobOfferExpanded.numberApplications}}
         </a>
       </div>
       <br>

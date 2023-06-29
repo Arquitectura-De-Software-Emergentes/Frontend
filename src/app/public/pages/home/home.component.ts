@@ -24,6 +24,7 @@ export class HomeComponent {
   idUser: number=0;
   isApplicant: boolean=true;
   public availability = Availability;
+  username:string|null='';
   value="";
   name="Toshiro";
   userType="Applicant"
@@ -58,9 +59,16 @@ export class HomeComponent {
   ngOnInit():void{
     console.log("usuario",this.authService.infoUser)
     this.idUser=this.authService.idUser;
-    if(this.authService.infoUser.user.role=='APPLICANT')this.isApplicant=true;
+    if(this.authService.infoUser.user.role=='APPLICANT'){
+      localStorage.setItem("applicantId",this.authService.infoUser.user.userId.toString())
+      localStorage.setItem("username",this.authService.infoUser.user.username)
+      this.username=localStorage.getItem("username");
+      this.isApplicant=true;
+    }
     else {
       localStorage.setItem("recruiterId",this.authService.infoUser.user.userId.toString())
+      localStorage.setItem("username",this.authService.infoUser.user.username)
+      this.username=localStorage.getItem("username");
       this.isApplicant=false;
     }
     this.setAllJobOffer()
