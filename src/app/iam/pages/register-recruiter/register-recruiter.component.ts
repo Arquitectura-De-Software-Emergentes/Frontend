@@ -27,10 +27,9 @@ export class RegisterRecruiterComponent {
     }
     this.authService.registerRecruiter(this.form.getRawValue()).subscribe(
       resp=>{
-        console.log(resp);
         this.authService.login(user).subscribe(r=>{
           this.authService.setUser(r);
-            if(r.user.role=='RECRUITER') this.router.navigate([`iam/recruiter-profile`])
+            if(r.user.role=='RECRUITER') this.router.navigate([`home`])
         })
       }
     )
