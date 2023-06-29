@@ -6,6 +6,11 @@ import { DialogCreateOfferComponent } from 'src/app/UI/components/dialog-create-
 import { JobOffer } from '../../models/job-offer.model';
 import { Currency, Experience, Modality, Type } from 'src/app/shared/enums';
 import { Router } from '@angular/router';
+import { AssessmentService } from 'src/app/assessment/services/assessment.service';
+import { AuthService } from 'src/app/iam/services/auth.service';
+import { TestResponse } from 'src/app/assessment/models/test';
+import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form-job-offer',
@@ -13,12 +18,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-job-offer.component.css'],
 })
 export class FormJobOfferComponent {
-  
+  tests: TestResponse[]=[];
+  selectedTestId: number=0;
   monedaSeleccionada:string='';
   valor=localStorage.getItem("recruiterId");
   aEntero=this.valor!=null?+this.valor:0;
   
-  
+  showSpinner: boolean=false;
 
   newJobOffer:JobOffer={
     id:0,
@@ -46,11 +52,17 @@ export class FormJobOfferComponent {
     }
   }
   constructor(
-    private dialog: MatDialog,
-    private applicantService: JobOfferService,
-    private router:Router
+    private dialog: MatDialog, private assessmentService: AssessmentService,
+    private applicantService: JobOfferService, private auth: AuthService,
+    private router:Router, private _snackBar: MatSnackBar
   ) {}
 
+  ngOnInit(){
+    this.showSpinner=true
+    this.assessmentService.getTestsByRecruiter(this.auth.idUser).subscribe(
+      tests=>{this.tests=tests;this.showSpinner=false;}
+    )
+  }
 
   save(): void {
     let dialogRef = this.dialog.open(DialogComponentComponent, {
@@ -78,9 +90,30 @@ export class FormJobOfferComponent {
   onMonedaSeleccionadaChange():void{
     this.newJobOffer.salary.currency = this.monedaSeleccionada === 'Soles' ? this.newJobOffer.salary.currency=Currency.PEN : this.newJobOffer.salary.currency=Currency.USD;
   }
-
+  volver(){
+    this.router.navigate([`home`])
+  }
   createJobOffer(): void {
-    this.applicantService.createJobOffer(this.newJobOffer).subscribe();
+    this.showSpinner=true;
+    this.applicantService.createJobOffer(this.newJobOffer).subscribe(r=>{
+      this.assessmentService.addTestToJobOffer(this.selectedTestId,r.id ).subscribe(
+        {
+          error:error=>{if(error.error.text){
+            this._snackBar.openFromComponent(SnackBarComponent, {
+              duration: 5000, data: {message: 'You successfully create job offer with test', status:'success'},
+              panelClass: ['success-snackbar'], 
+            }); this.showSpinner=false; this.volver();
+          }
+          if(error.error.message){
+            this._snackBar.openFromComponent(SnackBarComponent, {
+            duration: 5000, data: {message: error.error.message, status:'warning'},
+            panelClass: ['warning-snackbar'], 
+          });
+          }}
+        }
+        
+        )
+    });
   }
 
   cancel():void{

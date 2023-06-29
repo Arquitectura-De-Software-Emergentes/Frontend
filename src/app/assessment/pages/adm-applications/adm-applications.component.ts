@@ -41,7 +41,7 @@ export class AdmApplicationsComponent {
     this.assessmentService.getAssessmentByIdJobOffer(idJobOffer).subscribe((resp) => {
       console.log(resp);
       TestId = (resp as AssessmentDetails).testId;
-      this.router.navigate([`assessment/submit-test`, { idTest: TestId }]);
+      this.router.navigate([`assessment/submit-test`, { idTest: TestId, idJobOffer: idJobOffer }]);
     });
   }
 
