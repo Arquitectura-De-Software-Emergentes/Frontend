@@ -10,7 +10,7 @@ import { ErrorResponse } from '../models/error-response';
 export class JobOfferService {
   id=localStorage.getItem("jobOfferId");
   intOfferId=this.id!=null?+this.id:0;
-  readonly apiUrl: string = 'http://ec2-3-95-18-5.compute-1.amazonaws.com:8080/api/v1/job-offers'
+  readonly apiUrl: string = 'https://teacher-finder.up.railway.app/api/v1/job-offers'
   constructor(private http:HttpClient) { }
 
   getJobOffers():Observable<JobOffer[]>{
