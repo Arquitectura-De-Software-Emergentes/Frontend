@@ -9,7 +9,7 @@ import { InstitutionalProfileResponse } from '../../models/recruiterprofileRespo
 })
 export class RecruiterProfileComponent implements OnInit{
   loading: boolean = false
-  inst:InstitutionalProfileResponse={
+  inst: InstitutionalProfileResponse ={
     name:'',
     description:'',
     urlWebPage:'',
@@ -23,7 +23,13 @@ export class RecruiterProfileComponent implements OnInit{
   }
   setProfile() {
     this.loading=true;
-    this.institutionalProfileService.getProfile(1);
+    this.institutionalProfileService.getProfile(1)
+    .subscribe({
+      next:profile=>{
+        this.loading=false;
+        this.inst=profile
+      }
+    })
   }
 
 }
