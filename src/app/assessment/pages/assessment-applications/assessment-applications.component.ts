@@ -20,4 +20,8 @@ export class AssessmentApplicationsComponent implements OnInit {
   volver(){
     this.router.navigate([`assessment`])
   }
+
+  showResult(){
+    //this.
+  }
 }

@@ -56,6 +56,11 @@ export class AssessmentService {
     let url= this.apiUrl+`${idJobOffer}/video-presentations?jobOfferId=${idJobOffer}`
     return this.http.post<string>(url, aux);
   }
+
+  getTestResultByIdApplicant(idJobOffer: number, idApplicant: number){
+    let url= this.apiUrl+`/${idJobOffer}/test-results/applicant/${idApplicant}?jobOfferId=${idJobOffer}&applicantId=${idApplicant}`
+    return this.http.get<AssessmentDetails>(url);
+  }
 }
 
 
