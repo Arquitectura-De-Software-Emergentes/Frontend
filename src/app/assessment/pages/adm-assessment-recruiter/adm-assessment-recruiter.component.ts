@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
 import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
 import { JobOfferService } from 'src/app/job-offer/services/job-offer.service';
+import { AuthService } from 'src/app/iam/services/auth.service';
 
 @Component({
   selector: 'app-adm-assessment-recruiter',
@@ -14,9 +15,11 @@ export class AdmAssessmentRecruiterComponent {
   showSpinner: boolean=false
   public availability = Availability;
   jobOffers: JobOffer[] = []
-  idRecruiter: number=1
-  constructor(private router: Router, private jobOfferService: JobOfferService){}
+  idRecruiter: number=0
+  constructor(private router: Router, private jobOfferService: JobOfferService, 
+    private authService: AuthService){}
  ngOnInit(){
+  this.idRecruiter=this.authService.idUser;
   this.setAllJobOfferByRecruiter()
  }
   setAllJobOfferByRecruiter(){

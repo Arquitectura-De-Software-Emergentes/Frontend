@@ -1,0 +1,43 @@
+<body>
+   <mat-card class="center-card" style="width: 30%;">
+    <h1 style="font-weight: 500; text-align: center; margin-top: 40px;">Teacher Finder</h1>
+    <div style="margin: 40px">
+        <div style="text-align: center" class="label-muted">
+          <div style="width: 100%">Username</div>
+          <mat-form-field [style.width.px]="227">
+            <input
+              matInput
+              [(ngModel)]="username"
+            />
+          </mat-form-field>
+        </div>
+        <div style="text-align: center" class="label-muted">
+          <div style="width: 100%">Password</div>
+          <mat-form-field [style.width.px]="227">
+            <input
+              matInput
+              [(ngModel)]="password"
+            />
+          </mat-form-field>
+        </div>
+        <div style="text-align: center">
+            <button
+              mat-raised-button
+              (click)="login()"
+              class="primary-button text-right"
+            >
+              Login
+            </button>
+          </div>
+          <div style="text-align: center; margin-top: 20px;">
+            <button
+              mat-raised-button
+              (click)="register()"
+              class="primary-button text-right"
+            >
+              Register
+            </button>
+          </div>
+      </div>
+   </mat-card>
+</body>

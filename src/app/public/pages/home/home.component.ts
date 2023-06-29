@@ -8,6 +8,7 @@ import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
 import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
 import { Router } from '@angular/router';
 import { VideoPresentationAnalysisService } from 'src/app/assessment/services/video-presentation-analysis.service';
+import { AuthService } from 'src/app/iam/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +17,10 @@ import { VideoPresentationAnalysisService } from 'src/app/assessment/services/vi
 })
 export class HomeComponent {
   constructor(private dialog: MatDialog,private jobOfferService:JobOfferService,private _snackBar: MatSnackBar,
+    private authService: AuthService,
     private router: Router, private videoService: VideoPresentationAnalysisService) {}
   showSpinner: boolean=false;
-  idApplicant: number=1;
+  idUser: number=0;
   isApplicant: boolean=true;
   public availability = Availability;
   value="";
@@ -53,6 +55,9 @@ export class HomeComponent {
   jobOffers:JobOffer[]=[];
 
   ngOnInit():void{
+    this.idUser=this.authService.idUser;
+    if(this.authService.infoUser.user.role=='APPLICANT')this.isApplicant=true;
+    else this.isApplicant=false;
     this.setAllJobOffer()
   }
 
@@ -73,45 +78,17 @@ export class HomeComponent {
         }
       );
     }else{
-      this.jobOfferService.getJobOffersByIdRecruiter(1).subscribe(
+      this.jobOfferService.getJobOffersByIdRecruiter(this.idUser).subscribe(
         data=>{
           this.jobOffers=data;
+          if(this.jobOffers.length){
           this.jobOfferExpanded=this.jobOffers[0];
+          }
           this.showSpinner=false;
         }
       );
     }
   }
-
-  /*apply():void{
-    let dialogRef = this.dialog.open(DialogComponentComponent, {
-      width: '550px',
-      data: {
-        title: 'Are you sure to apply to this job offer?',
-        accepted:false,
-      }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.jobOfferService.applyToJobOffer(this.jobOfferExpanded.id,this.idApplicant).subscribe({
-          error:(error)=>{
-            if(error.error.text){
-              this._snackBar.openFromComponent(SnackBarComponent, {
-                duration: 5000, data: {message: 'You successfully applied', status:'success'},
-                panelClass: ['success-snackbar'], 
-              });
-            }
-            if(error.error.message){
-              this._snackBar.openFromComponent(SnackBarComponent, {
-              duration: 5000, data: {message: error.error.message, status:'warning'},
-              panelClass: ['warning-snackbar'], 
-            });
-            }
-          },
-        })
-      }
-    })
-  }*/
 
   goEditJobOffer(){
     this.router.navigate([`job-offer/create`])

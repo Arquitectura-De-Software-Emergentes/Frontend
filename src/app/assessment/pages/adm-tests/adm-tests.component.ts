@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TestResponse } from '../../models/test';
 import { AssessmentService } from '../../services/assessment.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/iam/services/auth.service';
 
 @Component({
   selector: 'app-adm-tests',
@@ -11,10 +12,11 @@ import { Router } from '@angular/router';
 export class AdmTestsComponent {
   showSpinner: boolean=false
   tests: TestResponse[] = [];
-  idRecruiter: number=1;
-  constructor(private assessmentService: AssessmentService, private router: Router){}
+  idRecruiter: number=0;
+  constructor(private assessmentService: AssessmentService, private router: Router, private authService: AuthService){}
 
   ngOnInit():void{
+    this.idRecruiter=this.authService.idUser
     this.setAllTests()
   }
 
