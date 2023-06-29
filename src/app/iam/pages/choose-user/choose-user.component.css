@@ -1,0 +1,37 @@
+.center-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  body {
+    background: linear-gradient(to bottom, #FFBD3E, white);
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
+    margin: 0 10px;
+  }
+
+  .image-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .circular-image {
+    width: 150px; /* Ajusta el tamaño según tus necesidades */
+    height: 150px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  
+  
+  

@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Options</h1>
+<div mat-dialog-content style="height: 100%; width: 100%;">
+  <div style="width: 40%; ">
+    <div>
+        <h2>Score:</h2>
+        <p>{{result.score}}</p>
+    </div>
+  
+  <div>
+    <h2>Result</h2>
+    <p>{{result.hasPassed?'Approved':'Disapproved'}}</p>
+  </div>
+  
+  <div>
+<h2>Submit Date:</h2>
+  <p>{{result.submitDate | date: 'shortDate'}}</p>
+  </div>
+  </div>
+ <button
+    mat-button
+    
+    style="margin-left: 10px; float: right"
+    class="primary-button"
+    mat-dialog-close
+  >
+    OK
+  </button>
+ 
+</div>
+

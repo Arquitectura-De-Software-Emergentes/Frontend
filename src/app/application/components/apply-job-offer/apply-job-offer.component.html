@@ -1,0 +1,8 @@
+<button
+  mat-raised-button
+  [disabled]="jobOffer.availability != 'AVAILABLE'"
+  class="primary-button"
+  (click)="apply()"
+>
+  <span>Apply</span>
+</button>

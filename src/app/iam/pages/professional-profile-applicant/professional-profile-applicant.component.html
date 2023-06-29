@@ -29,10 +29,11 @@
   </div>
 
   <div style="padding: 50px; padding-top: 60px" *ngIf="!loading">
-    <h1 style="text-align: center; width: 100%; font-weight: 500">Erick Cruz</h1>
+    <h1 style="text-align: center; width: 100%; font-weight: 500">
+      {{profileInformation.personalInformation.name + ' ' +profileInformation.personalInformation.lastname}}</h1>
 
     
-    <div  class="label-suave">
+    <div  class="label-muted">
       <div style="width: 100%">CV</div>
       <mat-form-field *ngIf="editCV" [style.width.px]="227" >
         <input [(ngModel)]="cv.cv"
@@ -96,7 +97,7 @@
           Information
         </ng-template>
         <div style="margin: 40px">
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">School</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -106,7 +107,7 @@
               />
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Speciality</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -116,7 +117,7 @@
               />
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Reference</div>
             <mat-form-field [style.width.px]="227">
               <textarea
@@ -135,7 +136,7 @@
           Information
         </ng-template>
         <div style="margin: 40px">
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Phone</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -145,7 +146,7 @@
               />
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Email</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -155,7 +156,7 @@
               />
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Mobile Phone</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -174,7 +175,7 @@
           Information
         </ng-template>
         <div style="margin: 40px">
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Name</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -184,7 +185,7 @@
               />
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Lastname</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -194,7 +195,7 @@
               />
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">DNI</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -204,7 +205,7 @@
               />
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Birth Date</div>
             <mat-form-field [style.width.px]="227">
               <input
@@ -223,7 +224,7 @@
               ></mat-datepicker>
             </mat-form-field>
           </div>
-          <div style="text-align: center" class="label-suave">
+          <div style="text-align: center" class="label-muted">
             <div style="width: 100%">Address</div>
             <mat-form-field [style.width.px]="227">
               <input

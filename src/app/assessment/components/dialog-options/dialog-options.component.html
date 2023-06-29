@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Options</h1>
+<div mat-dialog-content style="height: 100%">
+  <div style="width: 40%; display: flex">
+    <div style="text-align: center; display: flex" class="label-muted">
+      <div style="padding: 10px">Rsponse</div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newOption.response" />
+      </mat-form-field>
+    </div>
+    <div
+      style="text-align: right; margin-bottom: 20px; margin: 10px; width: 150px;"
+      class="label-muted"
+    >
+      <mat-checkbox [(ngModel)]="newOption.isCorrect">Is Correct</mat-checkbox>
+    </div>
+    <div
+      style="text-align: right; margin-bottom: 20px; margin: 10px; width: 200px"
+      class="label-muted"
+    >
+      <button style=" width: 150px"
+        mat-raised-button 
+        (click)="addOptionList()"
+      >
+        <span>Add Option</span>
+      </button>
+    </div>
+  </div>
+  <div
+    style="display: flex; justify-content: center; align-items: center"
+    *ngFor="let option of options"
+  >
+    <mat-card style="width: 100%; margin: 10px">
+      <mat-card-title style="margin: 10px"
+        >{{ option.response }}
+        <mat-icon
+          *ngIf="option.isCorrect == true"
+          style="font-weight: 900; position: absolute"
+          >check_circle</mat-icon
+        ></mat-card-title
+      >
+    </mat-card>
+  </div>
+  <button
+    mat-button
+    mat-button
+    [mat-dialog-close]="options"
+    class="primary-button"
+    style="margin-left: 10px; float: right"
+    mat-dialog-close
+  >
+    Save
+  </button>
+</div>

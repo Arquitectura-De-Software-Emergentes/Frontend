@@ -1,0 +1,28 @@
+<div style="padding: 50px; padding-top: 25px">
+    <button
+      style="margin-bottom: 10px"
+      mat-icon-button
+      aria-label="Example icon button with a vertical three dot icon"
+      (click)="volver()"
+    >
+      <mat-icon style="font-weight: 900">keyboard_backspace</mat-icon>
+    </button>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Applicants to the job offer</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding: 25px">
+       <mat-card *ngFor="let applicant of appications" style="margin: 10px;">
+        <mat-card-title style="padding: 10px;">
+
+        {{applicant.applicantProfile.personalInformation.name + " " + applicant.applicantProfile.personalInformation.lastname}}
+        </mat-card-title>
+
+        <mat-card-actions align="end" style="margin: 10px;">
+          <button mat-button class="primary-button" style="margin-left: 10px;" (click)="showResult(applicant.applicationId.applicantId)">Result Test</button>
+        </mat-card-actions>
+       </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

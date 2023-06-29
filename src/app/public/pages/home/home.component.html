@@ -1,0 +1,189 @@
+<div class="two-column-container">
+  
+  <div class="scrollable-column">
+    <div class="scrollable-content">
+      <div style="padding: 20px;">
+       <div style="text-align: right;">
+          <button mat-raised-button 
+          class="primary-button"
+          (click)="goToCreate()"
+          *ngIf="!isApplicant">
+          <span>Create</span>
+        </button>
+       </div>
+       
+        <div
+        *ngFor="let jobOffer of jobOffers"
+        style="margin: 2%; box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4)"
+        (click)="jobOfferExpanded=jobOffer"
+        class="oferta">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{ jobOffer.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ jobOffer.description }}
+            </p>
+            <br />
+            <div class="row">
+              <div class="column">
+                <div style="display: flex; align-items: center; padding-top: 10px; font-size: small;">
+                  <mat-icon
+                    class="mat-icon-position"
+                    style="padding-right: 8px; padding-bottom: 2px"
+                    >date_range</mat-icon> <div style="font-weight: 500; padding-right: 10px;">Start Date: </div>
+                   {{ jobOffer.initialDate | date : "short" }}
+                </div>
+              </div>
+              <div class="column">
+                <div style="display: flex; align-items: center; padding-top: 10px; font-size: small;">
+                  <mat-icon
+                    class="mat-icon-position"
+                    style="padding-right: 8px; padding-bottom: 2px"
+                    >date_range</mat-icon> <div style="font-weight: 500; padding-right: 10px;">Finish Date: </div>
+                   {{ jobOffer.endDate | date : "short" }}
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div *ngIf="showSpinner"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    "
+  >
+    <mat-spinner></mat-spinner>
+</div>
+
+      </div>
+     
+    </div>
+  </div>
+  <div class="static-column">
+    <div style="display: flex; justify-content: end;height: 17%;">
+      <!---------------
+       <div style="width: 50%">
+        <mat-form-field class="example-form-field">
+          <mat-label>Search</mat-label>
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput type="text" [(ngModel)]="value" />
+          <button
+            *ngIf="value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="value = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      -->
+      <div style="width: 100%; display: flex; justify-content: end">
+        <mat-card class="example-card" style="align-items: end; width: 100%;">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{username}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content style="margin: 0px; width: 95%;display: flex; justify-content: end">  
+            <button mat-raised-button class="primary-button" style="margin: 1%">
+              Course
+            </button>
+            <button mat-raised-button class="primary-button" style="margin: 1%">
+              Modality
+            </button>
+            <button mat-raised-button class="primary-button" style="margin: 1%">
+              Experience
+            </button>
+            <button mat-raised-button class="primary-button" style="margin: 1%">
+              Type
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <mat-card
+    class="example-card"
+    style=" box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4);margin-top: 10px;"
+  >
+    <mat-card-header>
+      <mat-card-title>{{
+        jobOfferExpanded.title
+      }}</mat-card-title>
+      <mat-card-subtitle>
+        {{jobOfferExpanded.description}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div style="padding: 20px; padding-bottom: 0px; text-align: right;  right: 0px;">
+        <mat-chip-option
+        style="color: white !important;right: 0px;font-weight: 500;"
+        selectable="false"
+        [selected]="jobOfferExpanded.availability==availability.AVAILABLE"
+        [ngClass]="jobOfferExpanded.availability=='AVAILABLE'?'available':'unavailable'"
+      >{{jobOfferExpanded.availability}}</mat-chip-option>
+    </div>
+    <mat-card-content>
+      <div class="padding-offer" style="padding-top: 0px;">
+        Salary: <a style="font-weight: 400;font-size:medium;">
+          {{jobOfferExpanded.salary.currency}} {{jobOfferExpanded.salary.mount}}
+        </a>
+      </div>
+      <div class="padding-offer">
+        Maximum Number of Applications: <a style="font-weight: 400;font-size:medium;">
+          {{jobOfferExpanded.maxApplications}}
+        </a>
+      </div>
+      <div class="padding-offer">
+        Number of Applications: <a style="font-weight: 400;font-size:medium;">
+          {{jobOfferExpanded.numberApplications}}
+        </a>
+      </div>
+      <br>
+      <h2 style="padding-bottom: 0px; padding-top: 0px; font-size: medium;">
+        The professional profile that they are looking for:</h2>
+      <div style="font-weight: 500;font-size:large; text-align: center; padding-bottom: 5px;">
+        {{jobOfferExpanded.positionProfile.name}}
+      </div>
+      <div class="padding-offer">
+        Course: <a style="font-weight: 400;font-size:medium;">
+          {{jobOfferExpanded.positionProfile.course.course}}
+        </a>
+      </div>
+      <div class="padding-offer">
+        Modality: <a style="font-weight: 400;font-size:medium;">
+          {{jobOfferExpanded.positionProfile.modality}}
+        </a>
+      </div>
+      <div class="padding-offer">
+        Experience: <a style="font-weight: 400;font-size:medium;">
+          {{jobOfferExpanded.positionProfile.experience}}
+        </a>
+      </div>
+      <div class="padding-offer">
+        Type: <a style="font-weight: 400;font-size:medium;">
+          {{jobOfferExpanded.positionProfile.type}}
+        </a>
+      </div>
+      
+      <div style="text-align: center; padding: 20px;">
+        <div *ngIf="isApplicant">
+          <app-apply-job-offer [idApplicant]="this.idUser" [jobOffer]="jobOfferExpanded"></app-apply-job-offer>
+        </div>
+        <button mat-raised-button 
+          class="primary-button"
+          (click)="goEditJobOffer()"
+          *ngIf="!isApplicant">
+          <span>Edit</span>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  </div>
+</div>
+

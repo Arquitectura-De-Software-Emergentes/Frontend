@@ -1,7 +1,6 @@
 import { Component,Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-dialog-component',
@@ -9,14 +8,12 @@ import { SnackBarComponent } from '../snack-bar/snack-bar.component';
   styleUrls: ['./dialog-component.component.css']
 })
 export class DialogComponentComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private dialogRef: MatDialogRef<DialogComponentComponent>,private snackBar: MatSnackBar) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private dialogRef: MatDialogRef<DialogComponentComponent>,
+  private snackBar: MatSnackBar) {}
 
   onAceptarClick():void{
     this.dialogRef.close({accepted:true});
-    this.snackBar.openFromComponent(SnackBarComponent,{
-      duration:2000,
-      panelClass:['snackbar-verde']
-    })
+    //poner snaCKBAR
   }
 
   onCancelarClick():void{

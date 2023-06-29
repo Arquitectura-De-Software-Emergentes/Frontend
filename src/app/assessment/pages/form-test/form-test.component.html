@@ -1,0 +1,90 @@
+<div style="padding: 50px; padding-top: 25px">
+  <button
+    style="margin-bottom: 10px"
+    mat-icon-button
+    aria-label="Example icon button with a vertical three dot icon"
+    (click)="volver()"
+  >
+    <mat-icon style="font-weight: 900">keyboard_backspace</mat-icon>
+  </button>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Create Test</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div style="text-align: center" class="label-muted">
+        <div style="width: 100%">Title</div>
+        <mat-form-field [style.width.px]="227">
+          <input matInput [(ngModel)]="newTest.title" />
+        </mat-form-field>
+      </div>
+      <div style="text-align: center" class="label-muted">
+        <div style="width: 100%">Minimun Score</div>
+        <mat-form-field [style.width.px]="227">
+          <input matInput [(ngModel)]="newTest.minimunScore" />
+        </mat-form-field>
+      </div>
+      <mat-card-title>Questions</mat-card-title>
+
+      <div style="text-align: center" class="label-muted">
+        <div style="width: 100%">Statement</div>
+        <mat-form-field style="width: 50%">
+          <textarea matInput [(ngModel)]="newQuestion.statement"></textarea>
+        </mat-form-field>
+      </div>
+      <div style="text-align: center" class="label-muted">
+        <div style="width: 100%">Points</div>
+        <mat-form-field style="width: 50%">
+          <input matInput [(ngModel)]="newQuestion.points" type="number" />
+        </mat-form-field>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center">
+        <div style="width: 50%; text-align: right">
+          <button
+            mat-raised-button
+            style="margin-bottom: 20px"
+            (click)="addQuestionList()"
+          >
+            <span>Add Question</span>
+          </button>
+        </div>
+      </div>
+      <div
+        style="display: flex; justify-content: center; align-items: center"
+        *ngFor="let question of questions; let i = index"
+      >
+        <mat-card style="width: 50%; margin: 10px">
+          <mat-card-title style="margin: 10px">{{
+            question.statement
+          }}</mat-card-title>
+
+          <mat-card-subtitle style="margin: 10px"
+            >Points: {{ question.points }}</mat-card-subtitle
+          >
+          <div style="justify-content: center; align-items: center">
+            <div style="text-align: right; margin: 20px; margin-top: 0px !important">
+              <button
+                mat-raised-button
+                class="primary-button"
+                (click)="dialogOptions(i, question.options)"
+              >
+                <span>Options</span>
+              </button>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </mat-card-content>
+    <mat-card-actions style="justify-content: right; margin: 10px">
+      <button
+        mat-button
+        (click)="create()"
+        class="primary-button"
+        style="margin-left: 10px; float: right"
+      >
+        Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

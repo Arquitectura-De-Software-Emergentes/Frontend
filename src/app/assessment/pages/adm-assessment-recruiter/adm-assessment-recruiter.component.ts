@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { AssessmentResponse, JobOffer } from '../../models/jobOffer';
 import { Router } from '@angular/router';
+import { JobOffer } from 'src/app/job-offer/models/job-offer.model';
 import { Availability, Currency, Experience, Modality, Type } from 'src/app/shared/enums';
+import { JobOfferService } from 'src/app/job-offer/services/job-offer.service';
+import { AuthService } from 'src/app/iam/services/auth.service';
 
 @Component({
   selector: 'app-adm-assessment-recruiter',
@@ -10,76 +12,29 @@ import { Availability, Currency, Experience, Modality, Type } from 'src/app/shar
 })
 export class AdmAssessmentRecruiterComponent {
   panelOpenState = false;
-  jobOffers: JobOffer[] = [
-    {
-      id: 1,
-      recruiterId: 2,
-      title: 'Math Teacher',
-      description: 'Puesto de trabajo para docente de primaria',
-      initialDate: new Date(),
-      endDate: new Date(),
-      salary: {mount:10000,currency:Currency.PEN},
-      maxApplications: 40,
-      numberApplications: 20,
-      availability: Availability.AVAILABLE,
-      positionProfile:{
-        id:1,
-        course:{course:"Math"},
-        experience:Experience.PRACTICER,
-        modality:Modality.VIRTUAL,
-        name:"aeaea",
-        type:Type.PARTTIME
+  showSpinner: boolean=false
+  public availability = Availability;
+  jobOffers: JobOffer[] = []
+  idRecruiter: number=0
+  constructor(private router: Router, private jobOfferService: JobOfferService, 
+    private authService: AuthService){}
+ ngOnInit(){
+  this.idRecruiter=this.authService.idUser;
+  this.setAllJobOfferByRecruiter()
+ }
+  setAllJobOfferByRecruiter(){
+    this.showSpinner=true;
+    this.jobOfferService.getJobOffersByIdRecruiter(this.idRecruiter).subscribe(
+      data=>{
+        this.jobOffers=data;
+        this.showSpinner=false;
       }
-    },
-  ];
-  assessments: AssessmentResponse[] = [
-    {
-      id: '1',
-      jobOfferId: 1,
-      title: 'Math Teacher',
-      recruiterInstitution: 'High school math teacher required late shift',
-      initialDate: new Date(),
-      endDate: new Date(),
-      avalability: Availability.AVAILABLE,
-      assessmentStages: [
-        { activities: null, title: 'Fase de revisión de video' },
-        { activities: null, title: 'Fase de pruebas de conocimientos' }
-      ],
-      positionProfile:{
-        id:1,
-        course:{course:"Math"},
-        experience:Experience.PRACTICER,
-        modality:Modality.VIRTUAL,
-        name:"aeaea",
-        type:Type.PARTTIME
-      }
-    },
-    {
-      id: '2',
-      jobOfferId: 1,
-      assessmentStages: [
-        { activities: null, title: 'Fase de pruebas de conocimientos' },
-      ],
-      title: 'Science Teacher',
-      recruiterInstitution: 'High school math teacher required late shift',
-      initialDate: new Date(),
-      endDate: new Date(),
-      avalability: Availability.AVAILABLE,
-      positionProfile:{
-        id:1,
-        course:{course:"Math"},
-        experience:Experience.PRACTICER,
-        modality:Modality.VIRTUAL,
-        name:"aeaea",
-        type:Type.PARTTIME
-      }
-    },
-    
-  ];
-  constructor(private router: Router){}
-  verDetalles(id: string):void{
-    this.router.navigate([`/recruiter/view-assesment-process`,
-    { idProcess: id },
+    )
+  }
+
+  verApplications(id: number):void{
+    this.router.navigate([`assessment/applications`,
+    { idJobOffer: id },
    ])
   }
 }

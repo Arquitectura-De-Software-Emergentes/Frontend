@@ -1,0 +1,29 @@
+<div class="contenedor-padre">
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row>
+      <button (click)="cajon.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span> Teacher Finder </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container class="contenido">
+    <mat-sidenav
+      #cajon
+      class="barra-menu"
+      mode="side"
+      opened
+      style="height: 100%; align-items: end"
+    >
+      <div *ngIf="isApplicant">
+        <app-menu-applicant></app-menu-applicant>
+      </div>
+      <div *ngIf="!isApplicant">
+        <app-menu-recruiter></app-menu-recruiter>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

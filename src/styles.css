@@ -3,3 +3,17 @@
 @import '../src/app/UI/components/button.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-snack-bar-container {
+    &.success-snackbar {
+      --mdc-snackbar-container-color: #f6ec98;
+      --mat-mdc-snack-bar-button-color: #1b49ff;
+      --mdc-snackbar-supporting-text-color: #000000;
+    }
+
+    &.warning-snackbar {
+        --mdc-snackbar-container-color: #ffb8b8;
+        --mat-mdc-snack-bar-button-color: #ff1b1b;
+        --mdc-snackbar-supporting-text-color: #000000;
+      }
+  }

@@ -1,0 +1,52 @@
+<div style="padding: 25px">
+    <h1 style="width: 100%; text-align: center; font-weight: 500;">Job Offers Applications</h1>
+    <div *ngIf="showSpinner"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    "
+  >
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!showSpinner">
+    <div *ngFor="let application of applications" style="padding: 10px;"> 
+        <mat-card>
+            <mat-card-header style="margin-bottom: 1%;">
+              <mat-card-title>{{ application.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ application.description }}</p>
+            </mat-card-content>
+            <mat-card-actions style="justify-content: right; margin: 10px">
+                <button
+                  mat-button
+                  class="primary-button"
+                  (click)="startTest(application.jobOfferId)"
+                  style="margin-left: 10px; float: right"
+                >
+                  Start Test
+                </button>
+                <button
+                  mat-button
+                  (click)="sendVideoPresentation(application.jobOfferId)"
+                  class="primary-button"
+                  style="margin-left: 10px; float: right"
+                >
+                  Send Video Presentation
+                </button>
+              </mat-card-actions>
+          </mat-card>
+      </div>
+
+   
+</div>   
+<div *ngIf="applications.length==0 && showSpinner==false" style="text-align: center; display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;">
+        You have no pending evaluations
+      </div>
+</div>
+  

@@ -6,6 +6,9 @@ import { ProfessionalProfileService } from '../../services/professional-profile.
 import { ProfessionalProfileResponse } from '../../models/professionalProfileResponse';
 import { ProfessionalProfileReq } from '../../models/professionalProfileReq';
 import { CVResponse } from '../../models/cvResponse';
+import { AuthService, InfoSession } from '../../services/auth.service';
+import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-professional-profile-applicant',
@@ -13,7 +16,9 @@ import { CVResponse } from '../../models/cvResponse';
   styleUrls: ['./professional-profile-applicant.component.css'],
 })
 export class ProfessionalProfileApplicantComponent implements OnInit{
-  loading: boolean = false
+  loading: boolean = false;
+  user?: InfoSession;
+  applicantId: number=1;
   cv: CVResponse ={
     cv: ''
   }
@@ -39,27 +44,36 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
     },
     jobExperienceInformations: []
   };
-  constructor(public dialog: MatDialog,
+  constructor(public dialog: MatDialog, private authService: AuthService,private _snackBar: MatSnackBar,
     private professionalProfileService: ProfessionalProfileService) {}
 
   ngOnInit(): void {
+    this.user=this.authService.infoUser
+    this.applicantId=this.authService.idUser;
+    console.log(this.authService.idUser)
      this.setProfile();
      this.setCV()
   }
 
   setProfile(){
     this.loading=true
-    this.professionalProfileService.getProfile(8)
-      .subscribe({
+    this.professionalProfileService.getProfile(this.applicantId)
+      .subscribe(
+        {
         next: profile => {
           this.loading=false;
           this.profileInformation=profile
+        },
+        error: r=>{
+          this.loading=false;
         }
-      })
+      }
+      
+      )
   }
 
   setCV(){
-    this.professionalProfileService.getCV(8)
+    this.professionalProfileService.getCV(this.applicantId)
       .subscribe({
         next: cv => {
           this.cv=cv;
@@ -68,7 +82,7 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
   }
 
   saveCV(){
-    this.professionalProfileService.updateCV(this.cv,8)
+    this.professionalProfileService.updateCV(this.cv,this.applicantId)
     .subscribe({
       next: ()=> {
           this.editCV=false
@@ -77,12 +91,22 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
     })
   }
   updateProfile(){
-    this.loading=true
-    this.professionalProfileService.updateProfile(this.profileInformation,8)
-      .subscribe({
+    this.loading=true;
+    let profile: ProfessionalProfileReq={
+      academicInformation: this.profileInformation.academicInformation,
+      contactInformation: this.profileInformation.contactInformation,
+      personalInformation: this.profileInformation.personalInformation
+    }
+    this.professionalProfileService.updateProfile(profile,this.applicantId)
+      .subscribe(
+        {
         next: profile => {
           this.loading=false
-          this.setProfile();this.editInformation=false
+          this.setProfile();this.editInformation=false;
+          this._snackBar.openFromComponent(SnackBarComponent, {
+            duration: 5000, data: {message: 'You updated the information successfully', status:'success'},
+            panelClass: ['success-snackbar'], 
+          });
         }
       })
   }
@@ -102,7 +126,7 @@ export class ProfessionalProfileApplicantComponent implements OnInit{
       if(result){
         let aux: JobExperienceInformation ={
         ...result,
-        applicantProfileId: 8
+        applicantProfileId: this.applicantId
       }
       this.addExperience(aux)
       }
