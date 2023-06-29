@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChatResponse, VideoPresentationAnalysisService } from '../../services/video-presentation-analysis.service';
 import { VideoAnalisisResponse } from '../../models/assessment-response';
+import { AssessmentService } from '../../services/assessment.service';
 
 @Component({
   selector: 'app-send-video-presentation',
@@ -9,11 +10,14 @@ import { VideoAnalisisResponse } from '../../models/assessment-response';
   styleUrls: ['./send-video-presentation.component.css']
 })
 export class SendVideoPresentationComponent {
-  constructor(private router: Router, private videoService: VideoPresentationAnalysisService ){}
+  constructor(private router: Router, private videoService: VideoPresentationAnalysisService, private activatedRoute: ActivatedRoute,
+    private assessmentService: AssessmentService ){}
   showSpinner: boolean=false;
+  idJobOffer: number=0;
   analisis: string=''
   file?: File;
   volver(){
+    this.idJobOffer = +this.activatedRoute.snapshot.paramMap.get('idJobOffer')!;
     this.router.navigate([`assessment/adm-applications`])
   }
 
@@ -36,6 +40,8 @@ export class SendVideoPresentationComponent {
   }
 
   send():void{
-    
+    this.assessmentService.postVideoAssessment(this.analisis,this.idJobOffer).subscribe(
+respo=>console.log(respo)
+    )
   }
 }

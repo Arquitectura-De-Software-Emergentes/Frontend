@@ -15,6 +15,7 @@ import { SendVideoPresentationComponent } from './pages/send-video-presentation/
 import { SubmitTestComponent } from './pages/submit-test/submit-test.component';
 import { AdmApplicationsComponent } from './pages/adm-applications/adm-applications.component';
 import { AssessmentApplicationsComponent } from './pages/assessment-applications/assessment-applications.component';
+import { DialogResultsComponent } from './components/dialog-results/dialog-results.component';
 @NgModule({
   declarations: [
     EvaluationsComponent,
@@ -30,6 +31,7 @@ import { AssessmentApplicationsComponent } from './pages/assessment-applications
     SubmitTestComponent,
     AdmApplicationsComponent,
     AssessmentApplicationsComponent,
+    DialogResultsComponent,
   ],
   imports: [CommonModule, UiModule, AssessmentRoutingModule],
 })

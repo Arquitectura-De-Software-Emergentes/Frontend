@@ -50,6 +50,34 @@ export class AssessmentService {
     let url= this.apiUrl+`/${idJobOffer}?jobOfferId=${idJobOffer}`
     return this.http.get<AssessmentDetails>(url);
   }
+
+  postVideoAssessment(feedback: string, idJobOffer: number){
+    let aux: VideoPresentationRequest={feedback: feedback}
+    let url= this.apiUrl+`${idJobOffer}/video-presentations?jobOfferId=${idJobOffer}`
+    return this.http.post<string>(url, aux);
+  }
+
+  getTestResultByIdApplicant(idJobOffer: number, idApplicant: number){
+    let url= this.apiUrl+`/${idJobOffer}/test-results/applicant/${idApplicant}?jobOfferId=${idJobOffer}&applicantId=${idApplicant}`
+    return this.http.get<TestResultResponse>(url);
+  }
+
+  addTestJobOffer(idJobOffer: number, testId: number){
+    let url=this.apiUrl+`/{jobOfferId}/test/{testId}?assessmentId=${idJobOffer}&testId=${testId}`;
+    return this.http.put<string>(url,null)
+  }
+}
+
+
+export interface VideoPresentationRequest{
+  feedback:string
+}
+
+export interface TestResultResponse{
+  submitDate: Date,
+  score: number,
+  testId: number,
+  hasPassed: boolean
 }
 
 

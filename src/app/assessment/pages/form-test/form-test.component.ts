@@ -7,6 +7,7 @@ import { AssessmentService } from '../../services/assessment.service';
 import { SnackBarComponent } from 'src/app/UI/components/snack-bar/snack-bar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { finalize } from 'rxjs';
+import { AuthService } from 'src/app/iam/services/auth.service';
 
 @Component({
   selector: 'app-form-test',
@@ -26,9 +27,12 @@ export class FormTestComponent {
     points: null
   }
   idRecruiter: number=1;
-  constructor(private router: Router, private _snackBar: MatSnackBar,public dialog: MatDialog, 
+  constructor(private router: Router, private _snackBar: MatSnackBar,public dialog: MatDialog, public authService: AuthService,
     private assessmentService: AssessmentService) {}
     
+  ngOnInit(){
+    this.idRecruiter=this.authService.idUser;
+  }
   volver(){
     this.router.navigate([`assessment/tests`])
   }
